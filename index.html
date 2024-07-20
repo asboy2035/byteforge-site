@@ -35,8 +35,8 @@
     }
 
     button {
-      background-color: black;
-      color: white;
+      background-color: rgba(255, 255, 255, 0.5);
+      color: black;
       border: none;
       padding: 10px 15px 10px 15px;
       border-radius: 10px;
@@ -44,10 +44,20 @@
       font-weight: 400;
       transition: all 0.1s ease-in-out;
       cursor: pointer;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
     }
 
     button:hover {
-      background-color: #5865F2;
+      background-color: rgba(88, 101, 242, 0.5);
+    }
+
+    .joinDisc {
+      transform: translate(-50%, -50%);
+      position: fixed;
+      bottom: 10px;
+      left: 50%;
+      display: block;
     }
 
     .giantText {
@@ -105,8 +115,9 @@
       }
 
       button {
-        background-color: white;
-        color: black;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        transition: background-color 0.3 ease, transform 0.3s ease;
       }
 
       .banner {
@@ -161,6 +172,8 @@
     </div>
     <h2><br></h2>
 
-    <button onclick="window.location.href='https://discord.gg/4RaCGGFPVp'">Join our Discord</button>
+    <a href="https://discord.gg/4RaCGGFPVp">
+      <button class="joinDisc">Join our Discord</button>
+    </a>
   </body>
 </html>
