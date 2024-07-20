@@ -1,0 +1,179 @@
+<html>
+  <head>
+    <title>ByteForge</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta property="og:title" content="ByteForge">
+    <meta property="og:description" content="A team of iOS and customization enthusiasts.">
+    <!-- <meta property="og:image" content="https://byteforge.pages.dev/Images/Preview.jpg"> -->
+    <meta property="og:url" content="https://byteforge.pages.dev/">  
+    <link rel="icon" href="/Images/favicon.ico" type="image/x-icon">  
+  </head>
+  <style>
+    body {
+      background: linear-gradient(to bottom, #8e3dd8, white);
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+      text-align: left;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      color: black;
+      padding-left: 15px;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    a {
+      color: black;
+    }
+
+    img {
+      height: 300px;
+      width: 300px;
+      border-radius: 15px;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    button {
+      background-color: black;
+      color: white;
+      border: none;
+      padding: 10px 15px 10px 15px;
+      border-radius: 10px;
+      font-size: medium;
+      font-weight: 400;
+      transition: all 0.1s ease-in-out;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #5865F2;
+    }
+
+    .headerBlur {
+      position: fixed;
+      background-color: rgba(255, 255, 255, 0.5);
+      left: 0px;
+      top: 0px;
+      width: 100vw;
+      height: 85px;
+      padding-left: 20px;
+      backdrop-filter: blur(10px);
+      z-index: 10;
+      box-shadow: 0 10px 100px rgba(0, 0, 0, 0.3);
+    }
+
+    .giantText {
+      font-size: 64pt;
+    }
+
+    .bfLogo {
+      position: fixed;
+      right: 15px;
+      top: 15px;
+      width: 55px;
+      height: 55px;
+      z-index: 11;
+      border-radius: 10px;
+    }
+
+    .light {
+      color: rgba(0, 0, 0, 0.7);
+    }
+
+    .image-container {
+      position: relative;
+      display: inline-block;
+      margin: 10px;
+    }
+
+    .banner {
+      position: absolute;
+      bottom: 0px;
+      left: 0;
+      width: 300px;
+      background: rgba(255, 255, 255, 0.5);
+      text-align: center;
+      border-radius: 0 0 15px 15px;
+      backdrop-filter: blur(10px);
+    }
+
+    .grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: left;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      body {
+        background: linear-gradient(to bottom, #29034d, black);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+      }
+
+      body, a {
+        color: white;
+      }
+
+      button {
+        background-color: white;
+        color: black;
+      }
+
+      .headerBlur, .banner {
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+
+      .light {
+      color: rgba(255, 255, 255, 0.7);
+      }
+
+      @media (max-width: 500px) {
+        .grid {
+          justify-content: center;
+        }
+      }
+    }
+  </style>
+  <body>
+    <img src="/Images/favicon.ico" alt="ByteForge Logo" class="bfLogo">
+    <div class="headerBlur">
+      <h1 class="light">Home</h1>
+    </div>
+    <h1><br></h1>
+    <h1 class="giantText">Hey.</h1>
+    <h2>We're ByteForge, a team of iOS and customization enthusiasts.</h2>
+    <p>You may access our products and services for free below.</p>
+    
+    <h2><br></h2>
+    <div class="grid">
+      <div class="image-container">
+        <img src="/Images/FLite-Logo-No-Round.jpg" alt="Image">
+        <div class="banner">
+          <h2><a href="https://asboy.craft.me/flite/hub">FLite</a></h2>
+          <p class="light">Ultimate iOS customization.</p>
+        </div>
+      </div>
+
+      <div class="image-container">
+        <img src="/Images/Walls-Logo.jpg" alt="Image">
+        <div class="banner">
+          <h2><a href="/wallpapers/">Wallpapers</a></h2>
+          <p class="light">A collection of free wallpapers.</p>
+        </div>
+      </div>
+
+      <div class="image-container">
+        <img src="/Images/Utilities-Logo.jpg" alt="Image">
+        <div class="banner">
+          <h2><a href="/utilities/">Utilities</a></h2>
+          <p class="light">Light iOS shortcuts.</p>
+        </div>
+      </div>
+    </div>
+    <h2><br></h2>
+
+    <button onclick="window.location.href='https://discord.gg/4RaCGGFPVp'">Join our Discord</button>
+  </body>
+</html>
