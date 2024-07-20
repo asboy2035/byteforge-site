@@ -50,21 +50,9 @@
       background-color: #5865F2;
     }
 
-    .headerBlur {
-      position: fixed;
-      background-color: rgba(255, 255, 255, 0.5);
-      left: 0px;
-      top: 0px;
-      width: 100vw;
-      height: 85px;
-      padding-left: 20px;
-      backdrop-filter: blur(10px);
-      z-index: 10;
-      box-shadow: 0 10px 100px rgba(0, 0, 0, 0.3);
-    }
-
     .giantText {
       font-size: 64pt;
+      margin-top: 70px;
     }
 
     .bfLogo {
@@ -121,27 +109,26 @@
         color: black;
       }
 
-      .headerBlur, .banner {
+      .banner {
         background-color: rgba(0, 0, 0, 0.5);
       }
 
       .light {
       color: rgba(255, 255, 255, 0.7);
       }
+    }
 
-      @media (max-width: 500px) {
-        .grid {
-          justify-content: center;
-        }
+    @media (max-width: 500px) {
+      .grid {
+        justify-content: center;
+      }
+
+      .giantText {
+        margin-top: 50px;
       }
     }
   </style>
   <body>
-    <img src="/Images/favicon.ico" alt="ByteForge Logo" class="bfLogo">
-    <div class="headerBlur">
-      <h1 class="light">Home</h1>
-    </div>
-    <h1><br></h1>
     <h1 class="giantText">Hey.</h1>
     <h2>We're ByteForge, a team of iOS and customization enthusiasts.</h2>
     <p>You may access our products and services for free below.</p>
