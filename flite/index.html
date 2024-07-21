@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>folder</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta property="og:title" content="FLite Hub">
+  <meta property="og:description" content="FLite downloads and information.">
+  <meta property="og:image" content="https://byteforge.pages.dev/Images/Preview.jpg">
+  <meta property="og:url" content="https://byteforge.pages.dev/flite">
+  <link rel="icon" href="/Images/FLite-Logo-No-Round.jpg" type="image/x-icon">
+  <style>
+    body {
+      background: linear-gradient(to bottom, #8e3dd8, white);
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+      color: black;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      text-align: left;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+
+    p, h3 {
+      text-align: center;
+    }
+
+    img {
+      height: 300px;
+      width: 300px;
+      border-radius: 15px;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    a {
+      color: black;
+    }
+
+    iframe {
+      border: none;
+      border-radius: 10px;
+      width: 90vh;
+      height: 90vh;
+    }
+
+   
+    .iframeContainer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .headerBlur {
+      position: fixed;
+      background-color: rgba(255, 255, 255, 0.5);
+      left: 0px;
+      top: 0px;
+      width: 100vw;
+      height: 85px;
+      padding-left: 20px;
+      backdrop-filter: blur(10px);
+      z-index: 10;
+      box-shadow: 0 10px 100px rgba(0, 0, 0, 0.3);
+    }
+
+    .bfLogo {
+      position: fixed;
+      right: 15px;
+      top: 15px;
+      width: 55px;
+      height: 55px;
+      z-index: 11;
+      border-radius: 10px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      body {
+        background: linear-gradient(to bottom, #29034d, black);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+      }
+
+      body, a {
+        color: white;
+      }
+
+      .headerBlur {
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <img src="/Images/favicon.ico" class="bfLogo">
+  <div class="headerBlur">
+    <h1>FLite Hub</h1>
+  </div>
+  <div class="iframeContainer">
+    <iframe src="https://asboy.craft.me/flite/hub"></iframe>
+  </div>
+  <p><a href="https://asboy.craft.me/flite/hub">Go to page</a></p>
+</body>
