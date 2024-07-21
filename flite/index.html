@@ -44,6 +44,31 @@
       height: 90vh;
     }
 
+    button {
+      transition: background-color 0.3 ease, transform 0.3s ease;
+      background-color: rgba(255, 255, 255, 0.5);
+      color: black;
+      border: none;
+      padding: 10px 15px 10px 15px;
+      border-radius: 10px;
+      font-size: medium;
+      font-weight: 400;
+      cursor: pointer;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    button:hover {
+      background-color: rgba(75, 12, 133, 0.5);
+    }
+
+    .openOriginal {
+      transform: translate(-50%, -50%);
+      position: fixed;
+      bottom: 10px;
+      left: 50%;
+      display: block;
+    }
    
     .iframeContainer {
       display: flex;
@@ -89,6 +114,11 @@
       .headerBlur {
         background-color: rgba(0, 0, 0, 0.5);
       }
+
+      button {
+        background-color: rgba(50, 50, 50, 0.5);
+        color: white;
+      }
     }
 
   </style>
@@ -103,5 +133,7 @@
   <div class="iframeContainer">
     <iframe src="https://asboy.craft.me/flite/hub"></iframe>
   </div>
-  <p><a href="https://asboy.craft.me/flite/hub">Go to page</a></p>
+  <a href="https://asboy.craft.me/flite/hub">
+    <button class="openOriginal">Original Page</button>
+  </a>
 </body>
