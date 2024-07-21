@@ -112,6 +112,13 @@
   </style>
 </head>
 <body>
+  <script>
+    function playSound(soundPath) {
+    var audio = new Audio(soundPath);
+    audio.play();
+    }
+  </script>
+
   <a href="/index.html">
     <img class="bfLogo" src="/Images/favicon.ico">
   </a>
@@ -120,7 +127,7 @@
   </div>
   <h1> <br><br> </h1>
   <div class="grid">
-    <div class="image-container">
+    <div class="image-container" onclick="playSound(/youtube_kpwNjdEPz7E_audio.mp3)">
       <img src="/Images/Folder.jpg" alt="Image">
       <div class="banner">
         <h2>Bruh</h2>
