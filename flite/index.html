@@ -39,7 +39,7 @@
 
     iframe {
       border: none;
-      border-radius: 10px;
+      border-radius: 25px;
       width: 90vh;
       height: 90vh;
     }
@@ -81,18 +81,20 @@
       background-color: rgba(255, 255, 255, 0.5);
       left: 0px;
       top: 0px;
-      width: 100vw;
+      width: calc(100vw - 60px);
       height: 85px;
       padding-left: 20px;
+      margin: 20px;
       backdrop-filter: blur(10px);
+      border-radius: 20px;
       z-index: 10;
-      box-shadow: 0 10px 100px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 10px 50px rgba(0, 0, 0, 0.3);
     }
 
     .bfLogo {
       position: fixed;
-      right: 15px;
-      top: 15px;
+      right: 35px;
+      top: 35px;
       width: 55px;
       height: 55px;
       z-index: 11;
