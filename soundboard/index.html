@@ -64,7 +64,7 @@
     .grid {
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
+      justify-content: left;
     }
 
     .headerBlur {
@@ -115,6 +115,11 @@
       }
     }
 
+    @media (max-width: 650px) {
+      .grid {
+        justify-content: center;
+      }
+    }
   </style>
 </head>
 <body>
