@@ -55,7 +55,7 @@
       bottom: 0px;
       left: 0;
       width: 300px;
-      background: linear-gradient(to bottom, rgba(255, 255, 255, 0)), rgba(255, 255, 255, 0.7);
+      background-color: rgba(255, 255, 255, 0.7);
       text-align: center;
       border-radius: 0 0 15px 15px;
       backdrop-filter: blur(10px);
@@ -107,7 +107,7 @@
       }
 
       .banner {
-        background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
+        background-color: rgba(0, 0, 0, 0.7)
       }
 
       .author {
@@ -178,10 +178,33 @@
   </div>
 
   <h2 style="margin-top: 50px;">Pings</h2>
-  <p style="text-align: left;">Soon.</p>
+  <div class="grid">
+    <div class="image-container" onclick="playSound('/soundboard/Sounds/Discord-Ping.mp3')">
+      <img src="/soundboard/Previews/Discord.webp" alt="Image">
+      <div class="banner">
+        <h2>Discord</h2>
+      </div>
+    </div>
+
+    <div class="image-container" onclick="playSound('/soundboard/Sounds/iOS-Ping.mp3')">
+      <img src="/soundboard/Previews/iOS.png">
+      <div class="banner">
+        <h2>iOS</h2>
+      </div>
+    </div>
+  </div>
 
   <h2 style="margin-top: 50px;">No Copyright Music</h2>
-  <p style="text-align: left;">Soon.</p>
+  <div class="grid">
+    <a href="https://ncs.io/">
+      <div class="image-container">
+        <img src="/soundboard/Previews/NCS.jpg" alt="Image">
+        <div class="banner">
+          <h2>NCS ↗</h2>
+        </div>
+      </div>
+    </a>
+  </div>
   <br>
 
   <p>Soundboard developed by <a href="https://asboy.framer.website/links">ash</a>.</p>
