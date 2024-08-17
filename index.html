@@ -28,30 +28,6 @@
       color: rgba(0, 0, 0, 0.7);
     }
 
-    .image-container {
-      position: relative;
-      display: inline-block;
-      margin: 15px;
-      cursor: pointer;
-    }
-
-    .banner {
-      position: absolute;
-      bottom: 0px;
-      left: 0;
-      width: 300px;
-      background-color: rgba(255, 255, 255, 0.7);
-      text-align: center;
-      border-radius: 0 0 15px 15px;
-      backdrop-filter: blur(10px);
-    }
-
-    .grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: left;
-    }
-
     @media (prefers-color-scheme: dark) {
       body, a {
         color: white;
@@ -61,10 +37,6 @@
         background-color: rgba(50, 50, 50, 0.5);
         color: white;
         transition: background-color 0.3 ease, transform 0.3s ease;
-      }
-
-      .banner {
-        background-color: rgba(0, 0, 0, 0.7)
       }
 
       .light {
@@ -128,7 +100,7 @@
         <div class="image-container">
           <img src="/Images/Soundboard-logo.jpg" alt="Soundboard logo">
           <div class="banner">
-            <h2><mark>Alpha</mark> Soundboard</h2>
+            <h2>Soundboard</h2>
             <p class="light">A meme/song player!</p>
           </div>
         </div>
