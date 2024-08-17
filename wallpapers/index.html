@@ -19,9 +19,48 @@
       justify-content: center;
     }
 
+    #myModal {
+      position: fixed;
+      left: 0;
+      top: 0px;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px); 
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    #myModal > div {
+      margin-top: 300px;
+      background-color: rgba(255, 255, 255, 0.5);
+      border: 2px solid rgba(211, 211, 211, 0.5);
+      border-radius: 20px;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    #addToHomeScreenBtn {
+      cursor: pointer;
+      transform: translate(-50%, -50%);
+      position: fixed;
+      bottom: 10px;
+      left: 50%;
+      display: block;
+      transition: ease-in-out 0.3s;
+    }
+
     @media (prefers-color-scheme: dark) {
       .author {
         color: rgba(255, 255, 255, 0.5);
+      }
+
+      #myModal > div {
+        background-color: rgba(40, 40, 40, 0.7);
+        border: 2px solid rgba(45, 45, 45, 0.5);
       }
     }
   </style>
@@ -102,5 +141,38 @@
   </div>
   <h3>Right-click or press and hold to save. Click folders to access their content.</h3>
   <p>Wallpapers curated by <a href="https://asboy.framer.website/links">ash</a>.</p>
+
+  <!-- Add to Home Screen Button -->
+  <button id="addToHomeScreenBtn" style="display:none;" onclick="openModal()">Add to Home Screen</button>
+
+  <!-- Modal Structure -->
+  <div id="myModal" style="display:none;">
+    <div>
+      <p>To add this app to your home screen, tap <strong>Share</strong> and then <strong>Add to Home Screen</strong>.</p>
+      <button onclick="closeModal()">Close</button>
+    </div>
+  </div>
+
+
+  <script>
+    // Function to open the modal
+    function openModal() {
+      document.getElementById("myModal").style.display = "block";
+    }
+  
+    // Function to close the modal
+    function closeModal() {
+      document.getElementById("myModal").style.display = "none";
+    }
+  
+    // Check if the app is running in standalone mode
+    if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone) {
+      // If in standalone mode, hide the "Add to Home Screen" button
+      document.getElementById("addToHomeScreenBtn").style.display = "none";
+    } else {
+      // If not in standalone mode, show the "Add to Home Screen" button
+      document.getElementById("addToHomeScreenBtn").style.display = "block";
+    }
+  </script>  
 </body>
 </html>
