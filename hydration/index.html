@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="ash's Hydration Calculator">
+  <meta property="og:description" content="Calculate how much hydration you got from your drink!">
+  <link rel="icon" href="/Images/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/default-styles.css" type="text/css">
+  <title>Hydration Calculator</title>
+  <style>
+    h3, p {
+      text-align: left;
+    }
+
+    button, select, input {
+      padding: 10px;
+      border-radius: 10px;
+      border: none;
+    }
+
+    input {
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    button {
+      cursor: pointer;
+      transform: translate(-50%, -50%);
+      position: fixed;
+      bottom: 10px;
+      left: 50%;
+      display: block;
+      transition: ease-in-out 0.3s;
+    }
+    
+    button:hover {
+      background-color: #6311b9;
+    }
+
+    .question {
+      margin-top: 40px;
+      margin-bottom: 10px;
+    }
+
+    
+    /* Modal styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 11;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(255, 255, 255, 0);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+
+    .modal-content {
+      background-color: rgba(255, 255, 255, 0.5);
+      margin: 15% auto;
+      padding: 20px;
+      border: 2px solid rgba(211, 211, 211, 0.5);
+      border-radius: 20px;
+      width: fit-content;
+      max-width: 500px;
+      text-align: left;
+    }
+
+    .close {
+      color: white;
+      background-color: #6311b9;
+      padding: 4px 12px 6px 12px;
+      border-radius: 10px;
+      float: right;
+      font-size: 24px;
+      font-weight: 300;
+      transition: background-color 0.3 ease, transform 0.3s ease;
+    }
+    
+    .close:hover,
+    .close:focus {
+      background-color: rgb(39, 0, 78);
+      text-decoration: none;
+      cursor: pointer;
+    }
+    @media (prefers-color-scheme: dark) {
+      input {
+        background-color: rgba(255, 255, 255, 0.5);
+      }
+
+      .modal-content {
+        background-color: rgba(40, 40, 40, 0.7);
+        border: 2px solid rgba(45, 45, 45, 0.5);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="topMask"></div>
+  <a href="/index.html">
+    <img class="bfLogo" src="/Images/favicon.ico">
+  </a>
+  <div class="headerBlur">    
+    <h1>Hydration Calc</h1>
+  </div>
+  <h1> <br><br> </h1>
+
+  <h3 class="question">What did you drink?</h3>
+  <select id="drink">
+    <!-- Options will be dynamically populated -->
+  </select>
+
+  <h3 class="question">How much did you drink (oz/ml)?</h3>
+  <input type="number" id="amount" min="0" step="0.1">
+
+  <button onclick="calculateHydration()" style="margin-top: 40px;">Calculate Hydration</button>
+
+  <!-- The Modal -->
+  <div id="hydrationModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <p id="modalResult"></p>
+    </div>
+  </div>
+
+  <script>
+    const drinkMultipliers = {
+      "Water": 1.0,
+      "Juice": 0.95,
+      "Coconut Water": 0.9,
+      "Smoothie": 0.7,
+      "Soda": 0.8,
+      "Milkshake": 0.8,
+      "Milk": 1.3,
+      "Skim/Almond/Oat/Soy Milk": 0.9,
+      "Yogurt": 0.7,
+      "Tea": 0.9,
+      "Decaf Coffee": 0.9,
+      "Coffee": 0.6,
+      "Hot Chocolate": 0.8,
+      "Beer": -0.4,
+      "Wine": -0.95,
+      "Shot": -1.59,
+      "Whiskey/Brandy/Tequila/Gin/Rum": -3.18
+    };
+
+    // Populate the drink options
+    window.onload = function() {
+        const drinkSelect = document.getElementById('drink');
+        for (const drink in drinkMultipliers) {
+            const option = document.createElement('option');
+            option.value = drink;
+            option.textContent = drink;
+            drinkSelect.appendChild(option);
+        }
+    };
+
+    function calculateHydration() {
+        const drinkSelect = document.getElementById('drink');
+        const drink = drinkSelect.value;
+        const amount = parseFloat(document.getElementById('amount').value);
+
+        if (isNaN(amount) || amount <= 0) {
+            showModal("Please enter a valid amount.");
+            return;
+        }
+
+        const multiplier = drinkMultipliers[drink];
+        const hydrationAmount = amount * multiplier;
+
+        showModal(`You got ${hydrationAmount.toFixed(2)} oz/ml of hydration.`);
+    }
+
+    function showModal(message) {
+        const modal = document.getElementById("hydrationModal");
+        const modalResult = document.getElementById("modalResult");
+        modalResult.textContent = message;
+        modal.style.display = "block";
+    }
+
+    // Close the modal when the user clicks on <span> (x)
+    document.querySelector(".close").onclick = function() {
+        document.getElementById("hydrationModal").style.display = "none";
+    }
+
+    // Close the modal if the user clicks anywhere outside of the modal content
+    window.onclick = function(event) {
+        const modal = document.getElementById("hydrationModal");
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+  </script>
+</body>
+</html>
