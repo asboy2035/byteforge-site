@@ -38,6 +38,7 @@ button {
   transition: all 0.1s ease-in-out;
   cursor: pointer;
   backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -83,7 +84,6 @@ mark {
   position: relative;
   display: inline-block;
   margin: 15px;
-  cursor: pointer;
 }
 
 .banner {

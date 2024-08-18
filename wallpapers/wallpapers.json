@@ -1,24 +1,30 @@
 [
   {
-    "name": "Folder",
-    "author": "Author",
-    "image": "/Images/Folder.jpg",
-    "link": "/wallpapers/folder",
-    "compatibility": ""
-  },
-  {
-    "name": "Image Name",
-    "author": "Author",
-    "image": "https://i.ibb.co/3FGf0RV/IMG-1633.jpg",
-    "link": "",
-    "compatibility": "📱"
-  },
-  {
     "name": "ByteForge Binary",
     "author": "ash",
     "image": "https://public-files.gumroad.com/mfrisqi45ervwtx2t41r86je87zj",
-    "link": "",
+    "link": "https://asboy.gumroad.com/l/byteforge-binary",
     "compatibility": "📱 💻"
+  },
+  {
+    "name": "Starfield",
+    "author": "BasicAppleGuy",
+    "image": "/wallpapers/Previews/Starfield.png",
+    "link": "https://basicappleguy.com/basicappleblog/starfield",
+    "compatibility": "📱 💻"
+  },
+  {
+    "name": "Goodbye Apollo",
+    "author": "Christian Selig",
+    "image": "/wallpapers/Previews/Goodbye-Apollo.png",
+    "link": "https://christianselig.gumroad.com/l/goodbye-wallpapers",
+    "compatibility": "📱 💻"
+  },
+  {
+    "name": "Fluid Neon",
+    "author": "Wallpaperize",
+    "image": "/wallpapers/Previews/Fluid.jpg",
+    "compatibility": "📱"
   }
 ]
   
