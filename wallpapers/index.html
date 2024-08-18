@@ -45,7 +45,7 @@
       text-align: left;
     }
 
-    #addToHomeScreenBtn {
+    #addToHomeScreenBtn, #installForMacBtn {
       cursor: pointer;
       transform: translate(-50%, -50%);
       position: fixed;
@@ -141,7 +141,9 @@
   <h3>Right-click or press and hold to save. Click folders to access their content.</h3>
 
   <!-- Add to Home Screen Button -->
-  <button id="addToHomeScreenBtn" style="display:none;" onclick="openModal()">Install (iOS)</button>
+  <button id="addToHomeScreenBtn" style="display:none;" onclick="openModal()">Install</button>
+  <!-- Install for Mac Button -->
+  <button id="installForMacBtn" style="display:none;" onclick="window.location.href='/wallpapers/Wallpapers-Installer-Mac.dmg'">Install</button>
 
   <!-- Modal Structure -->
   <div id="myModal" style="display:none;">
@@ -154,7 +156,7 @@
       </a>
     </div>
   </div>
-  
+
   <script>
     // Function to open the modal
     function openModal() {
@@ -165,13 +167,24 @@
     function closeModal() {
       document.getElementById("myModal").style.display = "none";
     }
-  
+    
+    // Function to detect macOS
+    function isMacOS() {
+      return navigator.platform.toUpperCase().indexOf('MAC') >= 0;
+    }
+
+    // Function to open Mac-specific modal
+    function openMacModal() {
+      // Add your Mac-specific modal logic here
+      alert("Mac-specific installation process can be added here.");
+    }
+
     // Function to detect iOS
     function isIOS() {
       return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
     }
-  
-    // Check if the app is running in standalone mode or on iOS
+
+    // Check if the app is running in standalone mode or on iOS/macOS
     if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone) {
       // Add 'pwa' class to the body when in standalone mode
       document.body.classList.add('pwa');
@@ -182,6 +195,9 @@
     } else if (isIOS()) {
       // Show the "Add to Home Screen" button only on iOS
       document.getElementById("addToHomeScreenBtn").style.display = "block";
+    } else if (isMacOS()) {
+      // Show the "Install for Mac" button only on macOS
+      document.getElementById("installForMacBtn").style.display = "block";
     }
   </script>  
 </body>
