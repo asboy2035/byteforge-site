@@ -85,16 +85,61 @@
   </div>
   <h1> <br><br> </h1>
   <div class="grid">
-    <div class="image-container">
-      <img src="https://i.ibb.co/3FGf0RV/IMG-1633.jpg" alt="Image">
-      <div class="banner">
-        <h2>Name</h2>
-        <p class="author">Author • 📱</p>
-      </div>
-    </div>
+    <!-- wallpapers -->
   </div>
-  <h3>Right-click or press and hold to save. Click folders to access their content.</h3>
+
+  <script>
+    // Fetch the wallpapers.json file
+    fetch('/wallpapers/wallpapers.json')
+      .then(response => response.json())
+      .then(data => {
+        const grid = document.querySelector('.grid');
+        
+        data.forEach(wallpaper => {
+          // Create the card container
+          const imageContainer = document.createElement('div');
+          imageContainer.classList.add('image-container');
   
+          // Create the image element
+          const img = document.createElement('img');
+          img.src = wallpaper.image;
+          img.alt = 'Image';
+          imageContainer.appendChild(img);
+  
+          // Create the banner div
+          const banner = document.createElement('div');
+          banner.classList.add('banner');
+  
+          // Create the title (h2)
+          const h2 = document.createElement('h2');
+          if (wallpaper.link) {
+            const link = document.createElement('a');
+            link.href = wallpaper.link;
+            link.textContent = wallpaper.name;
+            h2.appendChild(link);
+          } else {
+            h2.textContent = wallpaper.name;
+          }
+          banner.appendChild(h2);
+  
+          // Create the author and compatibility paragraph
+          const p = document.createElement('p');
+          p.classList.add('author');
+          p.textContent = wallpaper.author + (wallpaper.compatibility ? ' • ' + wallpaper.compatibility : '');
+          banner.appendChild(p);
+  
+          // Append the banner to the container
+          imageContainer.appendChild(banner);
+  
+          // Append the image container to the grid
+          grid.appendChild(imageContainer);
+        });
+      })
+      .catch(error => console.error('Error loading wallpapers:', error));
+  </script>
+  
+  <h3>Right-click or press and hold to save. Click folders to access their content.</h3>
+
   <!-- Add to Home Screen Button -->
   <button id="addToHomeScreenBtn" style="display:none;" onclick="openModal()">Install (iOS)</button>
 
@@ -109,7 +154,7 @@
       </a>
     </div>
   </div>
-
+  
   <script>
     // Function to open the modal
     function openModal() {
