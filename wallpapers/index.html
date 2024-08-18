@@ -158,33 +158,73 @@
   </div>
 
   <script>
+    /**
+     * Opens the modal.
+     */
     // Function to open the modal
     function openModal() {
+      const modal = document.getElementById("myModal");
+      modal.style.display = "block";
       document.getElementById("myModal").style.display = "block";
     }
+
+    /**
+     * Closes the modal.
+     */
   
     // Function to close the modal
     function closeModal() {
+      const modal = document.getElementById("myModal");
+      modal.style.display = "none";
       document.getElementById("myModal").style.display = "none";
     }
+
+    /**
+     * Determines if the current platform is macOS.
+     * @returns {boolean} True if the current platform is macOS, false otherwise.
+     */
     
     // Function to detect macOS
     function isMacOS() {
+      return /^mac/i.test(navigator.platform);
       return navigator.platform.toUpperCase().indexOf('MAC') >= 0;
     }
 
+    /**
+     * Opens the Mac-specific modal.
+     */
     // Function to open Mac-specific modal
     function openMacModal() {
       // Add your Mac-specific modal logic here
       alert("Mac-specific installation process can be added here.");
     }
 
+    /**
+     * Determines if the current platform is iOS.
+     * @returns {boolean} True if the current platform is iOS, false otherwise.
+     */
     // Function to detect iOS
     function isIOS() {
+      const userAgent = navigator.userAgent;
+      const isIOSRegex = /iPad|iPhone|iPod/i;
+      const isSafari = !window.MSStream;
+      return isIOSRegex.test(userAgent) && isSafari;
       return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
     }
 
     // Check if the app is running in standalone mode or on iOS/macOS
+    const displayMode = window.matchMedia('(display-mode: standalone)').matches;
+    const isStandalone = window.navigator.standalone;
+    const body = document.body;
+    const bfLogo = document.querySelector('.bfLogo');
+    const addToHomeScreenBtn = document.getElementById("addToHomeScreenBtn");
+    const installForMacBtn = document.getElementById("installForMacBtn");
+
+    if (displayMode || isStandalone) {
+      body.classList.add('pwa');
+      bfLogo.classList.add('pwa');
+      addToHomeScreenBtn.style.display = "none";
+    }
     if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone) {
       // Add 'pwa' class to the body when in standalone mode
       document.body.classList.add('pwa');
@@ -193,9 +233,11 @@
       // Hide the "Add to Home Screen" button
       document.getElementById("addToHomeScreenBtn").style.display = "none";
     } else if (isIOS()) {
+      addToHomeScreenBtn.style.display = "block";
       // Show the "Add to Home Screen" button only on iOS
       document.getElementById("addToHomeScreenBtn").style.display = "block";
     } else if (isMacOS()) {
+      installForMacBtn.style.display = "block";
       // Show the "Install for Mac" button only on macOS
       document.getElementById("installForMacBtn").style.display = "block";
     }
