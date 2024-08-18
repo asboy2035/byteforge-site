@@ -67,7 +67,11 @@
     }
 
     .pwa .headerBlur {
-      margin-top: 30px;
+      margin-top: 100px;
+    }
+
+    .pwa .bfLogo {
+      margin-top: 100px; /* Example adjustment */
     }
   </style>
 </head>
@@ -112,14 +116,21 @@
       document.getElementById("myModal").style.display = "none";
     }
   
-    // Check if the app is running in standalone mode
+    // Function to detect iOS
+    function isIOS() {
+      return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+    }
+  
+    // Check if the app is running in standalone mode or on iOS
     if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone) {
       // Add 'pwa' class to the body when in standalone mode
       document.body.classList.add('pwa');
+      document.querySelector('.bfLogo').classList.add('pwa');
+  
       // Hide the "Add to Home Screen" button
       document.getElementById("addToHomeScreenBtn").style.display = "none";
-    } else {
-      // Show the "Add to Home Screen" button
+    } else if (isIOS()) {
+      // Show the "Add to Home Screen" button only on iOS
       document.getElementById("addToHomeScreenBtn").style.display = "block";
     }
   </script>  
