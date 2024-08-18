@@ -68,10 +68,11 @@
 
     .pwa .headerBlur {
       margin-top: 70px;
+      margin-bottom: 50px;
     }
 
     .pwa .bfLogo {
-      margin-top: 50px; /* Example adjustment */
+      display: none;
     }
   </style>
 </head>
@@ -84,11 +85,16 @@
   </div>
   <h1> <br><br> </h1>
   <div class="grid">
-    <!-- Your content here -->
+    <div class="image-container">
+      <img src="https://i.ibb.co/3FGf0RV/IMG-1633.jpg" alt="Image">
+      <div class="banner">
+        <h2>Name</h2>
+        <p class="author">Author • 📱</p>
+      </div>
+    </div>
   </div>
   <h3>Right-click or press and hold to save. Click folders to access their content.</h3>
-  <p>Wallpapers curated by <a href="https://asboy.framer.website/links">ash</a>.</p>
-
+  
   <!-- Add to Home Screen Button -->
   <button id="addToHomeScreenBtn" style="display:none;" onclick="openModal()">Install (iOS)</button>
 
