@@ -27,7 +27,7 @@
       height: 100%;
       background-color: rgba(255, 255, 255, 0);
       backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px); 
+      -webkit-backdrop-filter: blur(20px);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -64,6 +64,14 @@
         border: 2px solid rgba(45, 45, 45, 0.5);
       }
     }
+
+    .headerBlur {
+      /* Add existing headerBlur styles here */
+    }
+
+    .pwa .headerBlur {
+      margin-top: 30px;
+    }
   </style>
 </head>
 <body>
@@ -76,69 +84,7 @@
   </div>
   <h1> <br><br> </h1>
   <div class="grid">
-    <div class="image-container">
-      <img src="/Images/Folder.jpg" alt="Image">
-      <div class="banner">
-        <h2><a href="/wallpapers/folder">folder</a></h2>
-        <p class="author">Author</p>
-      </div>
-    </div>
-
-    <div class="image-container">
-      <img src="https://i.ibb.co/3FGf0RV/IMG-1633.jpg" alt="Image">
-      <div class="banner">
-        <h2>Name</h2>
-        <p class="author">Author • 📱</p>
-      </div>
-    </div>
-
-    <div class="image-container">
-      <img src="https://i.ibb.co/3FGf0RV/IMG-1633.jpg" alt="Image">
-      <div class="banner">
-        <h2>Name</h2>
-        <p class="author">Author • 📱</p>
-      </div>
-    </div>
-
-    <div class="image-container">
-      <img src="https://i.ibb.co/3FGf0RV/IMG-1633.jpg" alt="Image">
-      <div class="banner">
-        <h2>Name</h2>
-        <p class="author">Author • 📱</p>
-      </div>
-    </div>
-
-    <div class="image-container">
-      <img src="https://i.ibb.co/3FGf0RV/IMG-1633.jpg" alt="Image">
-      <div class="banner">
-        <h2>Name</h2>
-        <p class="author">Author • 📱</p>
-      </div>
-    </div>
-
-    <div class="image-container">
-      <img src="https://i.ibb.co/3FGf0RV/IMG-1633.jpg" alt="Image">
-      <div class="banner">
-        <h2>Name</h2>
-        <p class="author">Author • 📱</p>
-      </div>
-    </div>
-
-    <div class="image-container">
-      <img src="https://i.ibb.co/3FGf0RV/IMG-1633.jpg" alt="Image">
-      <div class="banner">
-        <h2>Name</h2>
-        <p class="author">Author • 📱</p>
-      </div>
-    </div>
-
-    <div class="image-container">
-      <img src="https://i.ibb.co/3FGf0RV/IMG-1633.jpg" alt="Image">
-      <div class="banner">
-        <h2>Name</h2>
-        <p class="author">Author • 📱</p>
-      </div>
-    </div>
+    <!-- Your content here -->
   </div>
   <h3>Right-click or press and hold to save. Click folders to access their content.</h3>
   <p>Wallpapers curated by <a href="https://asboy.framer.website/links">ash</a>.</p>
@@ -158,7 +104,6 @@
     </div>
   </div>
 
-
   <script>
     // Function to open the modal
     function openModal() {
@@ -172,10 +117,12 @@
   
     // Check if the app is running in standalone mode
     if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone) {
-      // If in standalone mode, hide the "Add to Home Screen" button
+      // Add 'pwa' class to the body when in standalone mode
+      document.body.classList.add('pwa');
+      // Hide the "Add to Home Screen" button
       document.getElementById("addToHomeScreenBtn").style.display = "none";
     } else {
-      // If not in standalone mode, show the "Add to Home Screen" button
+      // Show the "Add to Home Screen" button
       document.getElementById("addToHomeScreenBtn").style.display = "block";
     }
   </script>  
