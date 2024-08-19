@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Download Wallpapers App</title>
+  <link rel="stylesheet" href="/default-styles.css" type="text/css" />
+</head>
+<style>
+  p {
+    text-align: left;
+  }
+
+  iframe {
+    z-index: -3;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    pointer-events: none;
+  }
+
+  .card {
+    position: relative;
+    background-color: white;
+    color: black;
+    padding: 1.875rem;
+    width: fit-content;
+    font-size: large;
+    border-radius: 2.5rem;
+  }
+
+  @property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+  }
+
+  .card::after, .card::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    background-image: conic-gradient(from var(--angle), red, orange, yellow, green, green, blue, turquoise, violet, indigo, red);
+    border-radius: 2.8125rem;
+    transition: all 0.3s ease;
+    z-index: -1;
+    transform: translate(-50%, -50%);
+    padding: 5px;
+    animation: 10s spin linear infinite;
+  }
+
+  @keyframes spin {
+    from {
+      --angle: 0deg;
+    }
+    to {
+      --angle: 360deg;
+    }
+  }
+
+  .card::before {
+    filter: blur(20px);
+  }
+
+  button {
+    position: relative;
+    background-color: rgb(191, 191, 191);
+    color: black;
+    border: none;
+    cursor: pointer;
+    padding: 15px 0px;
+    width: 100%;
+    font-size: large;
+    border-radius: 1.25rem;
+  }
+
+  .container {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -2;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .card {
+      background-color: black;
+      color: white;
+    }
+
+    button {
+      background-color: rgb(53, 53, 53);
+      color: white;
+    }
+  }
+</style>
+<body>
+  <iframe src="/wallpapers/"></iframe>
+  <div class="container">
+    <div class="card">
+      <h1 style="margin-top: -5px;">Download the App</h1>
+      <p>Access ByteForge Wallpapers easily!</p>
+      <a style="text-decoration: none;" href="/wallpapers/ByteForge Wallpapers.mobileconfig">
+        <button style="margin-top: 4rem;">iOS/iPadOS  <a style="text-decoration: none; background-color: indigo; padding: 0.3125rem; border-radius: 0.625rem;" href="https://support.apple.com/en-us/102400">How to add?</a></button>
+      </a>
+
+      <a href="/wallpapers/Wallpapers-Installer-Mac.dmg">
+        <button style="margin-top: 0.7rem;">macOS</button>
+      </a>
+    </div>
+  </div>
+</body>
+</html>
