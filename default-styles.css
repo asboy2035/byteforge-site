@@ -9,7 +9,7 @@ body {
   user-select: none;
   -webkit-user-select: none;
   padding: 15px;
-  margin: 30px;
+  margin: 1.8rem;
 }
 
 p, h3 {
@@ -21,9 +21,9 @@ a {
 }
 
 img {
-  height: 300px;
-  width: 300px;
-  border-radius: 20px;
+  height: 18.75rem;
+  width: 18.75rem;
+  border-radius: 1.25rem;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
 }
 
@@ -32,7 +32,7 @@ button {
   color: black;
   border: none;
   padding: 10px 15px 10px 15px;
-  border-radius: 10px;
+  border-radius: 0.625rem;
   font-size: medium;
   font-weight: 400;
   transition: all 0.1s ease-in-out;
@@ -56,28 +56,31 @@ mark {
 .headerBlur {
   position: fixed;
   background-color: rgba(255, 255, 255, 0.5);
-  left: 0px;
-  top: 0px;
-  width: calc(100vw - 69px);
-  height: 85px;
-  padding-left: 25px;
-  margin: 20px;
+  left: 1.25rem;
+  top: 1.25rem;
+  width: calc(100vw - 2.5rem - 4px);
+  height: 5.3125rem;
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-radius: 30px;
+  border-radius: 1.875rem;
   z-index: 10;
   box-shadow: 0 10px 50px rgba(0, 0, 0, 0.3);
   border: 2px solid rgba(211, 211, 211, 0.5);
 }
 
+.headerBlur > h1 {
+  padding-left: 1.5625rem;
+}
+
 .bfLogo {
-  position: fixed;
-  right: 37px;
-  top: 37px;
-  width: 55px;
-  height: 55px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0.9375rem;
+  width: 3.4375rem;
+  height: 3.4375rem;
   z-index: 11;
-  border-radius: 15px;
+  border-radius: 0.9375rem;
 }
 
 .image-container {
@@ -90,10 +93,10 @@ mark {
   position: absolute;
   bottom: 0px;
   left: 0;
-  width: 300px;
+  width: 18.75rem;
   background-color: rgba(255, 255, 255, 0.7);
   text-align: center;
-  border-radius: 0 0 20px 20px;
+  border-radius: 0 0 1.25rem 1.25rem;
   backdrop-filter: blur(20px);
   border-top: 2px solid rgba(184, 184, 184, 0.5);
   -webkit-backdrop-filter: blur(20px);
