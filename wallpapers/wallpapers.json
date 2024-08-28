@@ -1,5 +1,29 @@
 [
   {
+    "name": "Topographic",
+    "author": "Gok",
+    "image": "/wallpapers/Previews/Topographic.png",
+    "link": "https://ko-fi.com/s/cfba2f83e5",
+    "compatibility": "📱 💻"
+  },
+
+  {
+    "name": "Serenity Peaks",
+    "author": "Wallpaperize",
+    "image": "/wallpapers/Previews/Serenity.png",
+    "link": "https://www.wallpaperize.cc/2024/04/serenity-peaks-minimalist-wallpaper.html",
+    "compatibility": "📱"
+  },
+
+  {
+    "name": "It's Glowtime",
+    "author": "BasicAppleGuy",
+    "image": "/wallpapers/Previews/Glowtime.jpeg",
+    "link": "https://basicappleguy.com/basicappleblog/its-glowtime",
+    "compatibility": "📱 💻"
+  },
+  
+  {
     "name": "ByteForge Binary",
     "author": "ash",
     "image": "https://public-files.gumroad.com/mfrisqi45ervwtx2t41r86je87zj",
@@ -27,4 +51,3 @@
     "compatibility": "📱"
   }
 ]
-  
