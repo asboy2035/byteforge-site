@@ -21,6 +21,7 @@ a {
 }
 
 img {
+  background: linear-gradient(to top, indigo, white);
   height: 18.75rem;
   width: 18.75rem;
   border-radius: 1.25rem;
@@ -124,6 +125,10 @@ mark {
     background-color: rgba(50, 50, 50, 0.5);
     color: white;
     transition: background-color 0.3 ease, transform 0.3s ease;
+  }
+
+  img {
+    background: linear-gradient(to top, indigo, black);
   }
 
   .headerBlur {
