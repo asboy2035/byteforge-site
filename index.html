@@ -1,124 +1,139 @@
 <html>
-  <head>
-    <title>ByteForge</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <meta property="og:title" content="ByteForge">
-    <meta property="og:description" content="A team of iOS and customization enthusiasts.">
-    <meta property="og:image" content="https://byteforge.pages.dev/Images/favicon.ico">
-    <meta property="og:url" content="https://byteforge.pages.dev/">  
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <link rel="icon" href="/Images/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="/default-styles.css" type="text/css">
-  </head>
-  <style>
-    button:hover {
-      background-color: rgba(88, 101, 242, 0.5);
-    }
+    <head>
+        <title>ByteForge</title>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover"
+        />
+        <meta property="og:title" content="ByteForge" />
+        <meta
+            property="og:description"
+            content="A team of iOS and customization enthusiasts."
+        />
+        <meta
+            property="og:image"
+            content="https://byteforge.pages.dev/Images/favicon.ico"
+        />
+        <meta property="og:url" content="https://byteforge.pages.dev/" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <link rel="icon" href="/Images/favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" href="/default-styles.css" type="text/css" />
+    </head>
+    <style>
+        button:hover {
+            background-color: rgba(88, 101, 242, 0.5);
+        }
 
-    .joinDisc {
-      transform: translate(-50%, -50%);
-      position: fixed;
-      bottom: 10px;
-      left: 50%;
-      display: block;
-    }
+        .joinDisc {
+            transform: translate(-50%, -50%);
+            position: fixed;
+            bottom: 10px;
+            left: 50%;
+            display: block;
+        }
 
-    .giantText {
-      font-size: 5.3rem;
-      margin-top: 70px;
-    }
+        .giantText {
+            font-size: 5.3rem;
+            margin-top: 70px;
+        }
 
-    .light {
-      color: rgba(0, 0, 0, 0.7);
-    }
+        .light {
+            color: rgba(0, 0, 0, 0.7);
+        }
 
-    @media (prefers-color-scheme: dark) {
-      body, a {
-        color: white;
-      }
+        @media (prefers-color-scheme: dark) {
+            body,
+            a {
+                color: white;
+            }
 
-      .light {
-      color: rgba(255, 255, 255, 0.7);
-      }
-    }
+            .light {
+                color: rgba(255, 255, 255, 0.7);
+            }
+        }
 
-    @media (max-width: 40.625rem) {
-      .grid {
-        justify-content: center;
-      }
+        @media (max-width: 40.625rem) {
+            .grid {
+                justify-content: center;
+            }
 
-      .giantText {
-        margin-top: 50px;
-      }
-    }
-  </style>
-  <body>
-    <h1 class="giantText">Hey.</h1>
-    <h2>We're ByteForge, a team of iOS and customization enthusiasts.</h2>
-    <p style="text-align: left;">You may access our products and services for free below.</p>
-    
-    <h2><br></h2>
+            .giantText {
+                margin-top: 50px;
+            }
+        }
+    </style>
+    <body>
+        <h1 class="giantText">Hey.</h1>
+        <h2>We're ByteForge, a team of iOS and customization enthusiasts.</h2>
+        <p style="text-align: left">
+            You may access our products and services for free below.
+        </p>
 
-    <h2>Customization</h2>
-    <div class="grid">
-      <a href="/flite">
-        <div class="image-container">
-          <img src="/Images/FLite-Logo-No-Round.jpg" alt="Image">
-          <div class="banner">
-            <h2>FLite</h2>
-            <p class="light">Ultimate iOS customization.</p>
-          </div>
+        <h2><br /></h2>
+
+        <h2>Customization</h2>
+        <div class="grid">
+            <a href="/flite">
+                <div class="image-container">
+                    <img src="/Images/FLite-Logo-No-Round.jpg" alt="Image" />
+                    <div class="banner">
+                        <h2>FLite</h2>
+                        <p class="light">Ultimate iOS customization.</p>
+                    </div>
+                </div>
+            </a>
+
+            <a href="/wallpapers">
+                <div class="image-container">
+                    <img src="/Images/Walls-Logo.jpg" alt="Image" />
+                    <div class="banner">
+                        <h2>Wallpapers</h2>
+                        <p class="light">Wallpapers for all your devices.</p>
+                    </div>
+                </div>
+            </a>
         </div>
-      </a>
 
-      <a href="/wallpapers">
-        <div class="image-container">
-          <img src="/Images/Walls-Logo.jpg" alt="Image">
-          <div class="banner">
-            <h2>Wallpapers</h2>
-            <p class="light">Free wallpapers</p>
-          </div>
+        <h2 style="margin-top: 50px">More</h2>
+        <div class="grid">
+            <a href="/utilities/">
+                <div class="image-container">
+                    <img src="/Images/Utilities-Logo.jpg" alt="Image" />
+                    <div class="banner">
+                        <h2>Utilities</h2>
+                        <p class="light">Light iOS shortcuts.</p>
+                    </div>
+                </div>
+            </a>
+
+            <a href="/soundboard/">
+                <div class="image-container">
+                    <img
+                        src="/Images/Soundboard-logo.jpg"
+                        alt="Soundboard logo"
+                    />
+                    <div class="banner">
+                        <h2>Soundboard</h2>
+                        <p class="light">A meme/song player!</p>
+                    </div>
+                </div>
+            </a>
+
+            <a href="/hydration/">
+                <div class="image-container">
+                    <img src="/Images/Hydration-logo.jpg" />
+                    <div class="banner">
+                        <h2>Hydration Calculator</h2>
+                        <p class="light">Calculate a drink's hydration.</p>
+                    </div>
+                </div>
+            </a>
         </div>
-      </a>
-    </div>
+        <h2><br /></h2>
 
-    <h2 style="margin-top: 50px;">More</h2>
-    <div class="grid">
-      <a href="/utilities/">
-        <div class="image-container">
-          <img src="/Images/Utilities-Logo.jpg" alt="Image">
-          <div class="banner">
-            <h2>Utilities</h2>
-            <p class="light">Light iOS shortcuts.</p>
-          </div>
-        </div>
-      </a>
-
-      <a href="/soundboard/">
-        <div class="image-container">
-          <img src="/Images/Soundboard-logo.jpg" alt="Soundboard logo">
-          <div class="banner">
-            <h2>Soundboard</h2>
-            <p class="light">A meme/song player!</p>
-          </div>
-        </div>
-      </a>
-
-      <a href="/hydration/">
-        <div class="image-container">
-          <img src="/Images/Hydration-logo.jpg">
-          <div class="banner">
-            <h2>Hydration Calculator</h2>
-            <p class="light">Calculate a drink's hydration.</p>
-          </div>
-        </div>
-      </a>
-    </div>
-    <h2><br></h2>
-
-    <a href="/redirect/discord.html">
-      <button class="joinDisc">Join our Discord</button>
-    </a>
-  </body>
+        <a href="/redirect/discord.html">
+            <button class="joinDisc">Join our Discord</button>
+        </a>
+    </body>
 </html>
