@@ -1,0 +1,41 @@
+button:hover {
+  background-color: rgba(88, 101, 242, 0.5);
+}
+
+.joinDisc {
+  transform: translate(-50%, -50%);
+  position: fixed;
+  bottom: 10px;
+  left: 50%;
+  display: block;
+}
+
+.giantText {
+  font-size: 5.3rem;
+  margin-top: 70px;
+}
+
+.light {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+@media (prefers-color-scheme: dark) {
+  body,
+  a {
+      color: white;
+  }
+
+  .light {
+      color: rgba(255, 255, 255, 0.7);
+  }
+}
+
+@media (max-width: 40.625rem) {
+  .grid {
+      justify-content: center;
+  }
+
+  .giantText {
+      margin-top: 50px;
+  }
+}
