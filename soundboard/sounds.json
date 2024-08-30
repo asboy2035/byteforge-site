@@ -1,0 +1,37 @@
+[
+  {
+    "name": "Bruh",
+    "image": "Previews/Bruh.jpg",
+    "sound": "Sounds/Bruh.mp3"
+  },
+
+  {
+    "name": "Aughh",
+    "image": "Previews/Aughh.jpg",
+    "sound": "Sounds/Aughh.mp3"
+  },
+
+  {
+    "name": "BBQ Bacon Burger",
+    "image": "Previews/BBQ-Bacon-Burger.gif",
+    "sound": "Sounds/BBQ-Bacon-Burger.mp3"
+  },
+
+  {
+    "name": "Quandale Dingle",
+    "image": "Previews/Quandale-Dingle.jpg",
+    "sound": "Sounds/Quandale-Dingle.mp3"
+  },
+
+  {
+    "name": "Shart",
+    "image": "Previews/Shart.jpg",
+    "sound": "Sounds/Shart.mp3"
+  },
+
+  {
+    "name": "Wanna break from the-",
+    "image": "Previews/Wanna-Break-From-the-Ads.jpg",
+    "sound": "Sounds/Wanna-Break-From-the-Ads.mp3"
+  }
+]

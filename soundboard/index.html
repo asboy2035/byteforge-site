@@ -30,13 +30,6 @@
   </style>
 </head>
 <body>
-  <script>
-    function playSound(soundPath) {
-    var audio = new Audio(soundPath);
-    audio.play();
-    }
-  </script>
-  
   <div class="headerBlur">    
     <h1>Soundboard</h1>
     <a href="/index.html">
@@ -45,48 +38,8 @@
   </div>
   <h1> <br><br> </h1>
   <h2>Memes</h2>
-  <div class="grid">
-    <div class="image-container" onclick="playSound('/soundboard/Sounds/Bruh.mp3')">
-      <img src="/soundboard/Previews/Bruh.jpg" alt="Image">
-      <div class="banner">
-        <h2>Bruh</h2>
-      </div>
-    </div>
-
-    <div class="image-container" onclick="playSound('/soundboard/Sounds/Aughh.mp3')">
-      <img src="/soundboard/Previews/Aughh.jpg" alt="Image">
-      <div class="banner">
-        <h2>Aughh</h2>
-      </div>
-    </div>
-
-    <div class="image-container" onclick="playSound('/soundboard/Sounds/BBQ-Bacon-Burger.mp3')">
-      <img src="/soundboard/Previews/BBQ-Bacon-Burger.gif" alt="Image">
-      <div class="banner">
-        <h2>BBQ Bacon Burger</h2>
-      </div>
-    </div>
-
-    <div class="image-container" onclick="playSound('/soundboard/Sounds/Quandale-Dingle.mp3')">
-      <img src="/soundboard/Previews/Quandale-Dingle.jpg" alt="Image">
-      <div class="banner">
-        <h2>Quandale Dingle</h2>
-      </div>
-    </div>
-
-    <div class="image-container" onclick="playSound('/soundboard/Sounds/Shart.mp3')">
-      <img src="/soundboard/Previews/Shart.jpg" alt="Image">
-      <div class="banner">
-        <h2>Shart</h2>
-      </div>
-    </div>
-
-    <div class="image-container" onclick="playSound('/soundboard/Sounds/Wanna-Break-From-the-Ads.mp3')">
-      <img src="/soundboard/Previews/Wanna-Break-From-the-Ads.jpg" alt="Image">
-      <div class="banner">
-        <h2>Wanna break from the-</h2>
-      </div>
-    </div>
+  <div class="grid" id="soundGrid">
+    <!-- Sounds -->
   </div>
 
   <h2 style="margin-top: 50px;">Pings</h2>
@@ -120,5 +73,8 @@
   <br>
 
   <p>Soundboard developed by <a href="https://asboy.framer.website/links">ash</a>.</p>
+
+  <!-- Sounds script -->
+  <script src="get-sounds.js"></script>
 </body>
 </html>
