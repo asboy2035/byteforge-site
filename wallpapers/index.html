@@ -12,6 +12,11 @@
   <link rel="icon" href="/Images/Walls-Logo.jpg" type="image/x-icon">
   <link rel="stylesheet" href="/default-styles.css" type="text/css">
   <style>
+    /* Define a variable for the safe area inset */
+    :root {
+      --safe-area-inset-top: env(safe-area-inset-top);
+    }
+
     .author {
       color: rgba(0, 0, 0, 0.5);
     }
@@ -67,8 +72,9 @@
     }
 
     .pwa .headerBlur {
-      margin-top: 50px;
-      margin-bottom: 50px;
+      /* margin-top: 50px; */
+      top: var(--safe-area-inset-top);
+      margin-bottom: 60px;
     }
 
     .pwa .bfLogo {
@@ -88,10 +94,9 @@
     <!-- wallpapers -->
   </div>
 
-  
   <script>
     // Fetch the wallpapers.json file
-    fetch('/wallpapers/wallpapers.json')
+    fetch('wallpapers.json')
       .then(response => response.json())
       .then(data => {
         const grid = document.querySelector('.grid');
@@ -140,7 +145,7 @@
   </script>
   
   <h3>Right-click or press and hold to save. Click links to access their content.</h3>
-  <p><a href="/wallpapers-safe-areas/">Dev only!</a></p>
+
   <!-- Install for Mac Button -->
   <button id="installForMacBtn" style="display:none;" onclick="window.location.href='/wallpapers/download'">Install</button>
 
