@@ -1,0 +1,99 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+button:hover {
+  background-color: #7539dd;
+  color: white;
+  box-shadow: 0 0px 40px rgb(132, 0, 255);
+}
+
+svg {
+  width: 2rem;
+  height: 2rem;
+}
+
+.download {
+  margin-top: 2rem;
+  background-color: black;
+  color: white;
+  font-weight: 500;
+}
+
+.appear {
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1rem 0.25rem;
+}
+
+.featureGrid {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 2.5rem;
+  background-color: #f4f4f4;
+  width: fit-content;
+}
+
+.feature {
+  border-radius: 1.5rem;
+  flex-grow: 1;
+  max-width: 12rem;
+  background-color: rgb(210, 210, 210);
+  padding: 1rem 1rem 0 1rem;
+  gap: none;
+}
+
+.feature > p, .feature > h3 {
+  text-align: left;
+}
+
+.feature > h3 {
+  margin-top: 2rem;
+  margin-bottom: -0.5rem;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-1rem);
+    filter: blur(1rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  button {
+    background-color: rgba(50, 50, 50, 0.5);
+    color: white;
+  }
+
+  .download {
+    background-color: white;
+    color: black;
+  }
+
+  .featureGrid {
+    background-color: rgb(18, 18, 18);
+  }
+
+  .feature {
+    background-color: rgb(35, 35, 35);
+  }
+}

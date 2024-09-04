@@ -1,61 +1,66 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>folder</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <meta property="og:title" content="FLite Hub">
-  <meta property="og:description" content="FLite downloads and information.">
+  <meta property="og:title" content="FLite">
+  <meta property="og:description" content="Ultimate iOS customization.">
   <meta property="og:image" content="https://byteforge.pages.dev/Images/Preview.jpg">
   <meta property="og:url" content="https://byteforge.pages.dev/flite">
   <link rel="icon" href="/Images/FLite-Logo-No-Round.jpg" type="image/x-icon">
   <link rel="stylesheet" href="/default-styles.css" type="text/css">
-  <style>
-    button:hover {
-      background-color: #8d3dd884;
-    }
-
-    iframe {
-      border: none;
-      border-radius: 1.5625rem;
-      width: calc(100vw - 30px);
-      height: calc(100vh - 30px - 4rem);
-    }
-
-    .openOriginal {
-      transform: translate(-50%, -50%);
-      position: fixed;
-      bottom: 10px;
-      left: 50%;
-      display: block;
-    }
-   
-    .iframeContainer {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    @media (prefers-color-scheme: dark) {
-      button {
-        background-color: rgba(50, 50, 50, 0.5);
-        color: white;
-      }
-    }
-
-  </style>
+  <link rel="stylesheet" href="styles.css" type="text/css">
+  <title>FLite</title>
 </head>
 <body>
   <div class="headerBlur">
-    <h1>FLite Hub</h1>
+    <h1>FLite</h1>
     <a href="/index.html">
       <img src="/Images/favicon.ico" class="bfLogo">
     </a>
   </div>
-  <div class="iframeContainer">
-    <iframe src="https://asboy.craft.me/flite/hub"></iframe>
+  <h1> <br><br> </h1>
+
+  <div class="section">
+    <h1 class="appear" style="font-size: 3rem; margin-bottom: 0;">FLite</h1>
+    <h2 class="appear" style="animation-delay: 0.5s; text-align: center;">Ultimate iOS customization.</h2>
+
+    <a href="https://www.icloud.com/shortcuts/8c037bcbeddf430aac3f39df0a054176">
+      <button class="download appear" style="animation-delay: 1s;">Free Download</button>
+    </a>
+    <p style="animation-delay: 1.25s;" class="appear">iOS Only.</p>
   </div>
-  <a href="https://asboy.craft.me/flite/hub">
-    <button class="openOriginal">Original Page</button>
-  </a>
+
+  <div class="section appear" style="animation-delay: 1.5s;">
+    <div class="featureGrid">
+      <div class="feature">
+        <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m14 9l-.25.375M10 9a5 5 0 1 0 0 6l.334-.5M10 9l4 6a5 5 0 1 0 0-6"/></svg>
+        <h3>Flux Support</h3>
+        <p>FLite has Flux wallpapers as well as Flux repo support.</p>
+      </div>
+
+      <div class="feature">
+        <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"><path d="M3.249 11.32c-1.698-1.08-1.698-3.56 0-4.64l6.2-3.946a4.75 4.75 0 0 1 5.101 0l6.201 3.946c1.698 1.08 1.698 3.56 0 4.64l-6.2 3.946a4.75 4.75 0 0 1-5.101 0z"/><path d="m19.66 11.986l-5.11-3.252a4.75 4.75 0 0 0-5.1 0l-5.11 3.252l5.915 3.765a3.25 3.25 0 0 0 3.49 0zm1.362.889q-.127.104-.27.195l-6.202 3.946a4.75 4.75 0 0 1-5.1 0L3.249 13.07a3 3 0 0 1-.27-.195c-1.423 1.16-1.333 3.425.27 4.445l6.2 3.946a4.75 4.75 0 0 0 5.101 0l6.201-3.946c1.603-1.02 1.693-3.285.27-4.445"/></g></svg>
+        <h3>Shortcuts-Based</h3>
+        <p>No need to deal with expensive or clunky sideloading.</p>
+      </div>
+
+      <div class="feature">
+        <svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M248 8C111 8 0 119 0 256s111 248 248 248s248-111 248-248S385 8 248 8m80 168c17.7 0 32 14.3 32 32s-14.3 32-32 32s-32-14.3-32-32s14.3-32 32-32m-160 0c17.7 0 32 14.3 32 32s-14.3 32-32 32s-32-14.3-32-32s14.3-32 32-32m194.8 170.2C334.3 380.4 292.5 400 248 400s-86.3-19.6-114.8-53.8c-13.6-16.3 11-36.7 24.6-20.5c22.4 26.9 55.2 42.2 90.2 42.2s67.8-15.4 90.2-42.2c13.4-16.2 38.1 4.2 24.6 20.5"/></svg>
+        <h3>User-Friendly</h3>
+        <p>FLite has a well laid-out interface that is easy to use.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section appear" style="animation-delay: 2s;">
+    <h1 style="margin-bottom: 0;">FLite user?</h1>
+    <h2>Here's some quick links:</h2>
+
+    <h3 style="margin-bottom: 0;"><a href="https://asboy.craft.me/flite/hub">FLite Hub</a></h3>
+    <p>FLite resources and stores.</p>
+
+    <h3 style="margin-bottom: 0; user-select: all; -webkit-user-select: text;"><a href="mailto:bf_supp@icloud.com">bf_supp@icloud.com</a></h3>
+    <p>For support.</p>
+  </div>
 </body>

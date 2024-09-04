@@ -56,32 +56,33 @@ mark {
 
 .headerBlur {
   position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
   background-color: rgba(255, 255, 255, 0.5);
-  left: 1.25rem;
+  left: 50%;
+  transform: translateX(-50%);
   top: 1.25rem;
-  width: calc(100vw - 2.5rem - 4px);
-  height: 5.3125rem;
+  padding: 0.5rem 1.25rem;
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-radius: 1.875rem;
   z-index: 10;
-  box-shadow: 0 10px 50px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.3);
   border: 2px solid rgba(211, 211, 211, 0.5);
 }
 
-.headerBlur > h1 {
-  padding-left: 1.5625rem;
-}
-
 .bfLogo {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  right: 0.9375rem;
-  width: 3.4375rem;
-  height: 3.4375rem;
+  width: 3.5rem;
+  height: 3.5rem;
   z-index: 11;
   border-radius: 0.9375rem;
+  transition: 0.3s ease-in-out;
+}
+.bfLogo:hover {
+  transform: scale(0.8);
+  box-shadow: 0 0px 30px rgb(0, 10, 88);
 }
 
 .image-container {
