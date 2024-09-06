@@ -26,7 +26,7 @@ body {
   display: flex;
   flex-direction: column;
   /* width: 100%; */
-  background-color: rgb(22, 22, 22);
+  background-color: rgb(212, 212, 212);
   border-radius: 1.25rem;
 }
 
@@ -56,7 +56,7 @@ img {
   left: 0.625rem;
   font-size: 1rem;
   background: rgba(255, 0, 51, 0.651);
-  color: white;
+  color: black;
   width: 2rem !important;
   height: 2rem !important;
   padding: none !important;
@@ -75,7 +75,7 @@ img {
 }
 
 .floating-btn {
-  color: white;
+  color: black;
   border: none;
   border-radius: 50%;
   width: 3rem;
@@ -161,6 +161,14 @@ select, input {
 
   .bookmark-card {
     background-color: rgb(40, 40, 40);
+  }
+
+  .image-container {
+    background-color: rgb(26, 26, 26);
+  }
+
+  .delete-btn, .floating-btn {
+    color: white;
   }
 
   select, input {
