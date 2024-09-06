@@ -35,16 +35,16 @@
           <input type="text" id="bookmark-name" required placeholder="Item Name">
 
           <select id="bookmark-type">
+            <option value="text">Text</option>
             <option value="url">URL</option>
             <option value="image">Image</option>
-            <option value="text">Text</option>
           </select>
 
-          <input type="text" id="bookmark-content" placeholder="Enter URL or Text" required>
+          <input type="text" id="bookmark-content" placeholder="Enter URL or Text">
 
           <!-- Image upload field, hidden by default -->
-          <label for="bookmark-image" id="image-upload-label" style="display: none;">Upload Image:</label>
-          <input type="file" id="bookmark-image" accept="image/*" style="display: none;">
+          <label for="bookmark-image" id="image-upload-label" class="hidden">Upload Image:</label>
+          <input type="file" id="bookmark-image" accept="image/*" class="hidden">
 
           <button type="submit">Add Item</button>
         </form>
@@ -63,6 +63,6 @@
     </div>
   </div>
 
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 </html>

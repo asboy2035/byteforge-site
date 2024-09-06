@@ -4,6 +4,7 @@
     "author": "Gok",
     "image": "/wallpapers/Previews/Topographic.png",
     "link": "https://ko-fi.com/s/cfba2f83e5",
+    "price": "$0+",
     "compatibility": "📱 💻"
   },
 
@@ -12,6 +13,7 @@
     "author": "Wallpaperize",
     "image": "/wallpapers/Previews/Serenity.png",
     "link": "https://www.wallpaperize.cc/2024/04/serenity-peaks-minimalist-wallpaper.html",
+    "price": "$0",
     "compatibility": "📱"
   },
 
@@ -20,6 +22,7 @@
     "author": "BasicAppleGuy",
     "image": "/wallpapers/Previews/Glowtime.jpeg",
     "link": "https://basicappleguy.com/basicappleblog/its-glowtime",
+    "price": "$0",
     "compatibility": "📱 💻"
   },
   
@@ -28,6 +31,7 @@
     "author": "ash",
     "image": "https://public-files.gumroad.com/mfrisqi45ervwtx2t41r86je87zj",
     "link": "https://asboy.gumroad.com/l/byteforge-binary",
+    "price": "$0+",
     "compatibility": "📱 💻"
   },
   {
@@ -35,6 +39,7 @@
     "author": "BasicAppleGuy",
     "image": "/wallpapers/Previews/Starfield.png",
     "link": "https://basicappleguy.com/basicappleblog/starfield",
+    "price": "$0",
     "compatibility": "📱 💻"
   },
   {
@@ -42,12 +47,15 @@
     "author": "Christian Selig",
     "image": "/wallpapers/Previews/Goodbye-Apollo.png",
     "link": "https://christianselig.gumroad.com/l/goodbye-wallpapers",
+    "price": "$5",
     "compatibility": "📱 💻"
   },
   {
     "name": "Fluid Neon",
     "author": "Wallpaperize",
     "image": "/wallpapers/Previews/Fluid.jpg",
+    "price": "$0",
     "compatibility": "📱"
   }
 ]
+

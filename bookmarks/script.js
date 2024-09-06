@@ -40,7 +40,7 @@ bookmarkForm.addEventListener('submit', (e) => {
   e.preventDefault();
   const name = bookmarkNameInput.value;
   const type = bookmarkTypeInput.value;
-  let content = bookmarkContentInput.value;
+  let content;
 
   // Handle image type bookmarks
   if (type === 'image') {
@@ -48,8 +48,8 @@ bookmarkForm.addEventListener('submit', (e) => {
     if (file) {
       const reader = new FileReader();
       reader.onload = function(event) {
-        const imageData = event.target.result; // Base64-encoded image
-        const newBookmark = { name, type, content: imageData };
+        content = event.target.result; // Base64-encoded image
+        const newBookmark = { name, type, content };
         bookmarks.push(newBookmark);
         saveBookmarks();
         renderBookmarks();
@@ -60,6 +60,7 @@ bookmarkForm.addEventListener('submit', (e) => {
     }
   } else {
     // For URL and Text types
+    content = bookmarkContentInput.value;
     const newBookmark = { name, type, content };
     bookmarks.push(newBookmark);
     saveBookmarks();
@@ -69,21 +70,19 @@ bookmarkForm.addEventListener('submit', (e) => {
   }
 });
 
-// Handle showing/hiding inputs based on type
-bookmarkTypeInput.addEventListener('change', () => {
-  const selectedType = bookmarkTypeInput.value;
-  if (selectedType === 'image') {
-    bookmarkContentInput.style.display = 'none';
-    contentLabel.style.display = 'none';
-    bookmarkImageInput.style.display = 'block';
-    imageUploadLabel.style.display = 'block';
+document.getElementById('bookmark-type').addEventListener('change', () => {
+  const bookType = document.getElementById('bookmark-type').value;
+  console.log(bookType);
+  if (bookType === 'image') {
+    document.getElementById('bookmark-content').classList.add('hidden');
+    document.getElementById('bookmark-image').classList.remove('hidden');
+    document.getElementById('image-upload-label').classList.remove('hidden');
   } else {
-    bookmarkContentInput.style.display = 'block';
-    contentLabel.style.display = 'block';
-    bookmarkImageInput.style.display = 'none';
-    imageUploadLabel.style.display = 'none';
+    document.getElementById('bookmark-content').classList.remove('hidden');
+    document.getElementById('bookmark-image').classList.add('hidden');
+    document.getElementById('image-upload-label').classList.add('hidden');
   }
-});
+})
 
 // Save bookmarks to localStorage
 function saveBookmarks() {
@@ -95,11 +94,11 @@ function renderBookmarks() {
   bookmarkGrid.innerHTML = ''; // Clear previous bookmarks
   bookmarks.forEach((bookmark, index) => {
     const bookmarkCard = document.createElement('div');
-    bookmarkCard.classList.add('bookmark-card');
+    bookmarkCard.classList.add('image-container');
 
     let contentHTML = '';
     if (bookmark.type === 'url') {
-      contentHTML = `<a href="${bookmark.content}" target="_blank">${bookmark.content}</a>`;
+      contentHTML = `<a href="${bookmark.content}" target="_blank"><p>${bookmark.content}</p></a>`;
     } else if (bookmark.type === 'image') {
       contentHTML = `<img src="${bookmark.content}" alt="${bookmark.name}" style="width: 100%;">`;
     } else {
@@ -107,8 +106,8 @@ function renderBookmarks() {
     }
 
     bookmarkCard.innerHTML = `
+      <div class="banner">${bookmark.name}</div>
       <div class="card-content">${contentHTML}</div>
-      <div class="card-footer">${bookmark.name}</div>
       <button class="delete-btn" onclick="deleteBookmark(${index})">
         -
       </button>

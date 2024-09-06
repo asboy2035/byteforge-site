@@ -45,12 +45,29 @@
   transition: ease-in-out 0.3s;
 }
 
+.price {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  background-color: rgba(255, 255, 255, 0.7);
+  border: 2px solid rgba(211, 211, 211, 0.5);
+  border-radius: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
 @media (prefers-color-scheme: dark) {
   .author {
     color: rgba(255, 255, 255, 0.5);
   }
 
   #myModal > div {
+    background-color: rgba(40, 40, 40, 0.7);
+    border: 2px solid rgba(45, 45, 45, 0.5);
+  }
+
+  .price {
     background-color: rgba(40, 40, 40, 0.7);
     border: 2px solid rgba(45, 45, 45, 0.5);
   }

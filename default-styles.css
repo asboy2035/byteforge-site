@@ -29,28 +29,31 @@ img {
 }
 
 button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: rgba(255, 255, 255, 0.5);
   color: black;
   border: none;
-  padding: 10px 15px 10px 15px;
-  border-radius: 0.625rem;
+  padding: 0.625rem 0.9375rem 0.625rem 0.9375rem;
+  border-radius: 0.6125rem;
   font-size: medium;
   font-weight: 400;
   transition: all 0.1s ease-in-out;
   cursor: pointer;
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(1.25rem);
+  -webkit-backdrop-filter: blur(1.25rem);
+  box-shadow: 0 0.625rem 0.625rem rgba(0, 0, 0, 0.1);
 }
 
 button:hover {
-  background-color: #6311b9;
+  background-color: #500add95;
 }
 
 mark {
   padding: 0px 5px;
   border-radius: 8px;
-  background-color: #8e3dd8;
+  background-color: #783dd8;
   color: white;
 }
 
@@ -60,7 +63,6 @@ mark {
   justify-content: center;
   align-items: center;
   gap: 2rem;
-  background-color: rgba(255, 255, 255, 0.5);
   left: 50%;
   transform: translateX(-50%);
   top: 1.25rem;
@@ -70,7 +72,18 @@ mark {
   border-radius: 1.875rem;
   z-index: 10;
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.3);
+  background-color: rgba(255, 255, 255, 0.5);
   border: 2px solid rgba(211, 211, 211, 0.5);
+  animation: slideTop 0.3s ease-in-out forwards;
+}
+
+@keyframes slideTop {
+  0% {
+    translate: 0 -100%;
+  }
+  100% {
+    translate: 0 0;
+  }
 }
 
 .bfLogo {

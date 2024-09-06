@@ -14,6 +14,7 @@ fetch('sounds.json')
       img.src = sound.image;
       img.alt = 'Image';
       imageContainer.appendChild(img);
+      imageContainer.onclick = () => playSound(sound.sound); 
 
       // Create the banner div
       const banner = document.createElement('div');
@@ -22,7 +23,6 @@ fetch('sounds.json')
       // Create the title (h2)
       const h2 = document.createElement('h2');
       h2.textContent = sound.name;
-      h2.onclick = playSound(sound.sound)
       banner.appendChild(h2);
 
       // Append the banner to the container
@@ -34,7 +34,7 @@ fetch('sounds.json')
   })
   .catch(error => console.error('Error loading sounds:', error));
 
-function playSound(soundPath) {
+  function playSound(soundPath) {
   var audio = new Audio(soundPath);
   audio.play();
 }

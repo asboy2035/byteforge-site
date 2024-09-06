@@ -1,63 +1,67 @@
 body {
-  user-select: auto;
-  -webkit-user-select: auto;
+  margin: 0rem;
 }
 
 .container {
-  margin-top: 5rem;
-  padding: 20px;
+  margin-top: 6.5rem;
+  padding: 0.5rem;
 }
 
 .masonry {
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 0.5rem; /* Adds space between grid items */
+  justify-content: space-between;
 }
 
-.bookmark-card {
-  background-color: #fff;
-  border-radius: 1.25rem;
-  display: inline-block;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  position: relative;
-  overflow: scroll;
-}
-
-.bookmark-card:hover .delete-btn {
+.image-container:hover .delete-btn {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.card-content {
-  padding: 0.9375rem;
-  padding-bottom: 2rem;
+.image-container {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  /* width: 100%; */
+  background-color: rgb(22, 22, 22);
+  border-radius: 1.25rem;
 }
 
-.card-footer {
-  position: absolute;
-  bottom: 0px;
-  left: 0;
+.card-content {
+  padding: 1rem;
+}
+
+.image-container:has(img) {
+  flex-grow: 0;
+}
+
+img {
+  border-radius: 0.25rem;
+}
+
+.banner {
+  position: relative;
   width: 100%;
-  background-color: rgb(231, 231, 231);
-  text-align: center;
   padding: 0.5rem 0;
-  border-radius: 0 0 1.25rem 1.25rem;
-  border-top: 2px solid rgb(217, 217, 217);
+  border-top: none;
+  border-radius: 1.25rem 1.25rem 0 0;
 }
 
 .delete-btn {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 0.625rem;
+  left: 0.625rem;
   font-size: 1rem;
-  background: red;
+  background: rgba(255, 0, 51, 0.651);
   color: white;
   width: 2rem !important;
   height: 2rem !important;
   padding: none !important;
   border: none;
-  border-radius: 50%;
+  border-radius: 0.625rem;
   display: none;
 }
 
@@ -71,10 +75,6 @@ body {
 }
 
 .floating-btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #8800ff;
   color: white;
   border: none;
   border-radius: 50%;
@@ -95,14 +95,35 @@ body {
   -webkit-backdrop-filter: blur(5px);
   justify-content: center;
   align-items: center;
+  animation: blur 0.2s ease-in-out forwards;
+}
+
+@keyframes blur {
+  0% {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+  100% {
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+  }
+}
+
+@keyframes scale {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 .modal-content {
-  background-color: white;
-  padding: 20px;
-  border-radius: 1rem;
-  user-select: none;
-  -webkit-user-select: none;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 2px solid rgba(211, 211, 211, 0.5);
+  padding: 1.25rem;
+  border-radius: 1.6125rem;
+  animation: scale 0.2s ease-in-out forwards;
 }
 
 .close-btn {
@@ -114,7 +135,11 @@ select, input {
   margin-right: 2rem;
   background: none;
   border: none;
-  color: gray;
+  color: black;
+}
+
+.hidden {
+  display: none;
 }
 
 #bookmark-form {
@@ -130,15 +155,15 @@ select, input {
 
 @media (prefers-color-scheme: dark) {
   .modal-content {
-    background-color: rgb(40, 40, 40);
+    background-color: rgba(40, 40, 40, 0.7);
+    border: 2px solid rgba(45, 45, 45, 0.5);
   }
 
   .bookmark-card {
     background-color: rgb(40, 40, 40);
   }
 
-  .card-footer {
-    background-color: rgb(29, 29, 29);
-    border-top: #222222 2px solid;
+  select, input {
+    color: white;
   }
 }

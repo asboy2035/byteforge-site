@@ -30,12 +30,19 @@ fetch('wallpapers.json')
         h2.textContent = wallpaper.name;
       }
       banner.appendChild(h2);
-
+      
+      const priceDiv = document.createElement('div');
+      priceDiv.classList.add('price');
+      priceDiv.textContent = wallpaper.price;
+    
       // Create the author and compatibility paragraph
       const p = document.createElement('p');
       p.classList.add('author');
       p.textContent = wallpaper.author + (wallpaper.compatibility ? ' • ' + wallpaper.compatibility : '');
       banner.appendChild(p);
+
+      // Append the price div to the image container
+      imageContainer.appendChild(priceDiv);
 
       // Append the banner to the container
       imageContainer.appendChild(banner);
