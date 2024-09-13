@@ -185,3 +185,9 @@ mark {
     border: 0.1rem solid rgba(45, 45, 45, 0.5);
   }
 }
+
+@media (max-width: 40.625rem) {
+  body {
+    padding: 1rem;
+  }
+}
