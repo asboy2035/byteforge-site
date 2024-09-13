@@ -30,8 +30,9 @@
 }
 
 @media (max-width: 40.625rem) {
-  .grid {
+  .collection > h2, .grid {
       justify-content: center;
+      text-align: center;
   }
 
   .giantText {
