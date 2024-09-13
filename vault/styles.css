@@ -3,7 +3,7 @@ body {
 }
 
 .container {
-  margin-top: 6.5rem;
+  margin-top: 6rem;
   padding: 0.5rem;
 }
 
@@ -11,59 +11,81 @@ body {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 0.5rem; /* Adds space between grid items */
-  justify-content: space-between;
-}
-
-.image-container:hover .delete-btn {
-  display: flex;
-  align-items: center;
+  gap: 1rem; /* Adds space between grid items */
   justify-content: center;
 }
 
-.image-container {
-  flex-grow: 1;
+.image-container:hover .delete-btn, .image-container:hover .edit-btn {
   display: flex;
-  flex-direction: column;
-  /* width: 100%; */
-  background-color: rgb(212, 212, 212);
-  border-radius: 1.25rem;
-  animation: fadeIn 1s ease-in-out;
 }
 
-.card-content {
-  padding: 1rem;
+.image-container {
+  background-color: rgb(212, 212, 212);
+  overflow: hidden;
 }
 
 .image-container:has(img) {
-  flex-grow: 0;
+  background: transparent;
 }
 
-img {
-  border-radius: 0.25rem;
+.url {
+  text-align: center;
+  font-weight: medium;
+  font-size: x-large;
+  word-break: break-all;
+}
+
+.card-content > img {
+  width: 18.75rem;
+  border-radius: 0.75rem;
+  object-fit: cover;
+}
+
+.card-content {
+  overflow-y: scroll;
+  margin: 0.5rem;
+  border-radius: 0.75rem;
 }
 
 .banner {
   position: relative;
-  width: 100%;
-  padding: 0.5rem 0;
+  width: calc(100% - 1.2rem);
+  margin-top: 1rem;
   border-top: none;
-  border-radius: 1.25rem 1.25rem 0 0;
+  overflow: scroll;
+}
+
+.accent {
+  top: 0;
+  left: 0;
+  position: absolute;
+  z-index: -1;
+  width: 18.75rem;
+  height: 18.75rem;
+  border-radius: 1rem;
+  filter: blur(3rem);
+  -webkit-filter: blur(3rem);
+}
+
+.delete-btn, .edit-btn {
+  position: absolute;
+  top: 0.9rem;
+  color: white;
+  width: 2rem;
+  height: 2rem;
+  padding: none;
+  border-radius: 0.5rem;
+  display: none;
 }
 
 .delete-btn {
-  position: absolute;
-  top: 0.625rem;
-  left: 0.625rem;
-  font-size: 1rem;
-  background: rgba(255, 0, 51, 0.651);
-  color: black;
-  width: 2rem !important;
-  height: 2rem !important;
-  padding: none !important;
-  border: none;
-  border-radius: 0.625rem;
-  display: none;
+  left: 0.9rem;
+  background: rgba(255, 0, 51, 0.6);
+}
+
+.edit-btn {
+  left: 3.2rem;
+  background: rgba(69, 44, 255, 0.6);
 }
 
 .floating-menu {
@@ -77,7 +99,6 @@ img {
 
 .floating-btn {
   color: black;
-  border: none;
   border-radius: 50%;
   width: 3rem;
   height: 3rem;
@@ -98,6 +119,23 @@ img {
   align-items: center;
   animation: blur 0.2s ease-in-out forwards;
 }
+
+/* Undo  */
+.undo {
+  position: fixed;
+  bottom: 1rem;
+  left: 1rem;
+  background: #ff293b9d;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 0.75rem 1rem;
+  border-radius: 1.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  animation: fadeIn 0.5s;
+}
+
 
 @keyframes fadeIn {
   from {
@@ -134,7 +172,7 @@ img {
 
 .modal-content {
   background-color: rgba(255, 255, 255, 0.5);
-  border: 2px solid rgba(211, 211, 211, 0.5);
+  border: 0.1rem solid rgba(211, 211, 211, 0.5);
   padding: 1.25rem;
   border-radius: 1.6125rem;
   animation: scale 0.2s ease-in-out forwards;
@@ -170,7 +208,7 @@ select, input {
 @media (prefers-color-scheme: dark) {
   .modal-content {
     background-color: rgba(40, 40, 40, 0.7);
-    border: 2px solid rgba(45, 45, 45, 0.5);
+    border: 0.1rem solid rgba(45, 45, 45, 0.5);
   }
 
   .bookmark-card {
@@ -181,7 +219,7 @@ select, input {
     background-color: rgb(26, 26, 26);
   }
 
-  .delete-btn, .floating-btn {
+  .floating-btn {
     color: white;
   }
 

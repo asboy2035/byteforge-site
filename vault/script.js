@@ -1,4 +1,7 @@
 let bookmarks = [];
+let currentEditIndex = null; // Keep track of the bookmark being edited
+let lastDeletedBookmark = null; // Keep track of the last deleted bookmark
+let lastDeletedIndex = null; // Keep track of the index of the last deleted bookmark
 
 // DOM Elements
 const bookmarkGrid = document.getElementById('bookmark-grid');
@@ -25,7 +28,10 @@ window.onload = () => {
 };
 
 // Show/Hide Modal Functions
-addBookmarkBtn.addEventListener('click', () => bookmarkModal.style.display = 'flex');
+addBookmarkBtn.addEventListener('click', () => {
+  bookmarkModal.style.display = 'flex';
+  currentEditIndex = null; // Reset edit index for adding new bookmark
+});
 settingsBtn.addEventListener('click', () => settingsModal.style.display = 'flex');
 
 closeButtons.forEach(btn => {
@@ -35,7 +41,7 @@ closeButtons.forEach(btn => {
   });
 });
 
-// Handle form submission
+// Handle form submission (add/edit bookmark)
 bookmarkForm.addEventListener('submit', (e) => {
   e.preventDefault();
   const name = bookmarkNameInput.value;
@@ -49,20 +55,31 @@ bookmarkForm.addEventListener('submit', (e) => {
       const reader = new FileReader();
       reader.onload = function(event) {
         content = event.target.result; // Base64-encoded image
-        const newBookmark = { name, type, content };
-        bookmarks.push(newBookmark);
+        if (currentEditIndex === null) {
+          // Adding new bookmark
+          bookmarks.push({ name, type, content });
+        } else {
+          // Editing existing bookmark (only title for images)
+          bookmarks[currentEditIndex].name = name;
+        }
         saveBookmarks();
         renderBookmarks();
         bookmarkForm.reset();
         bookmarkModal.style.display = 'none';
       };
-      reader.readAsDataURL(file); // Convert image to base64
+      reader.readAsDataURL(file);
     }
   } else {
     // For URL and Text types
     content = bookmarkContentInput.value;
-    const newBookmark = { name, type, content };
-    bookmarks.push(newBookmark);
+    if (currentEditIndex === null) {
+      // Adding new bookmark
+      bookmarks.push({ name, type, content });
+    } else {
+      // Editing existing bookmark (title and content)
+      bookmarks[currentEditIndex].name = name;
+      bookmarks[currentEditIndex].content = content;
+    }
     saveBookmarks();
     renderBookmarks();
     bookmarkForm.reset();
@@ -70,26 +87,12 @@ bookmarkForm.addEventListener('submit', (e) => {
   }
 });
 
-document.getElementById('bookmark-type').addEventListener('change', () => {
-  const bookType = document.getElementById('bookmark-type').value;
-  console.log(bookType);
-  if (bookType === 'image') {
-    document.getElementById('bookmark-content').classList.add('hidden');
-    document.getElementById('bookmark-image').classList.remove('hidden');
-    document.getElementById('image-upload-label').classList.remove('hidden');
-  } else {
-    document.getElementById('bookmark-content').classList.remove('hidden');
-    document.getElementById('bookmark-image').classList.add('hidden');
-    document.getElementById('image-upload-label').classList.add('hidden');
-  }
-})
-
 // Save bookmarks to localStorage
 function saveBookmarks() {
   localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
 }
 
-// Render bookmarks in the masonry grid
+// Render bookmarks in the grid and add Edit buttons
 function renderBookmarks() {
   bookmarkGrid.innerHTML = ''; // Clear previous bookmarks
   bookmarks.forEach((bookmark, index) => {
@@ -98,9 +101,12 @@ function renderBookmarks() {
 
     let contentHTML = '';
     if (bookmark.type === 'url') {
-      contentHTML = `<a href="${bookmark.content}" target="_blank"><p>${bookmark.content}</p></a>`;
+      contentHTML = `<a href="${bookmark.content}" target="_blank"><p class="url">${bookmark.content}</p></a>`;
     } else if (bookmark.type === 'image') {
-      contentHTML = `<img src="${bookmark.content}" alt="${bookmark.name}" style="width: 100%;">`;
+      contentHTML = `
+        <img src="${bookmark.content}" alt="${bookmark.name}" style="width: 100%;" class="accent">
+        <img src="${bookmark.content}" alt="${bookmark.name}" style="width: 100%;">
+      `;
     } else {
       contentHTML = `<p>${bookmark.content}</p>`;
     }
@@ -108,20 +114,70 @@ function renderBookmarks() {
     bookmarkCard.innerHTML = `
       <div class="banner">${bookmark.name}</div>
       <div class="card-content">${contentHTML}</div>
-      <button class="delete-btn" onclick="deleteBookmark(${index})">
-        -
-      </button>
+      <button class="edit-btn" onclick="editBookmark(${index})">...</button>
+      <button class="delete-btn" onclick="deleteBookmark(${index})">-</button>
     `;
 
     bookmarkGrid.appendChild(bookmarkCard);
   });
 }
 
+// Edit bookmark
+function editBookmark(index) {
+  currentEditIndex = index;
+  const bookmark = bookmarks[index];
+  bookmarkNameInput.value = bookmark.name;
+  bookmarkTypeInput.value = bookmark.type;
+
+  if (bookmark.type === 'image') {
+    document.getElementById('bookmark-content').classList.add('hidden');
+    document.getElementById('bookmark-image').classList.remove('hidden');
+    document.getElementById('image-upload-label').classList.remove('hidden');
+    bookmarkContentInput.value = ''; // Clear content for image bookmarks
+  } else {
+    document.getElementById('bookmark-content').classList.remove('hidden');
+    document.getElementById('bookmark-image').classList.add('hidden');
+    document.getElementById('image-upload-label').classList.add('hidden');
+    bookmarkContentInput.value = bookmark.content; // Pre-fill content for text/url
+  }
+
+  bookmarkModal.style.display = 'flex';
+}
+
 // Delete bookmark
 function deleteBookmark(index) {
+  // Save the deleted bookmark and its index
+  lastDeletedBookmark = bookmarks[index];
+  lastDeletedIndex = index;
+
+  // Remove the bookmark
   bookmarks.splice(index, 1);
   saveBookmarks();
   renderBookmarks();
+
+  // Show undo message
+  const undoDiv = document.createElement('div');
+  undoDiv.classList.add('undo');
+  undoDiv.innerHTML = `
+    <p>Card removed</p>
+    <button class="undo-btn">Undo</button>
+  `;
+  bookmarkGrid.appendChild(undoDiv);
+
+  // Remove undo message after 2 seconds
+  setTimeout(() => {
+    undoDiv.remove();
+  }, 5000);
+
+  // Handle undo button click
+  undoDiv.querySelector('.undo-btn').addEventListener('click', () => {
+    if (lastDeletedBookmark && lastDeletedIndex !== null) {
+      bookmarks.splice(lastDeletedIndex, 0, lastDeletedBookmark);
+      saveBookmarks();
+      renderBookmarks();
+      undoDiv.remove();
+    }
+  });
 }
 
 // Download JSON of bookmarks

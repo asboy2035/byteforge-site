@@ -1,30 +1,21 @@
 body {
   background-color: white;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
   text-align: left;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   color: black;
   user-select: none;
   -webkit-user-select: none;
-  padding: 15px;
-  margin: 1.8rem;
-}
-
-p, h3 {
-  text-align: center;
+  padding: 2rem;
+  animation: fadeIn 0.5s ease-in-out;
 }
 
 a {
   color: black;
+  text-decoration: none;
 }
 
 img {
   background: linear-gradient(to top, indigo, white);
-  height: 18.75rem;
-  width: 18.75rem;
-  border-radius: 1.25rem;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
 }
 
@@ -44,10 +35,16 @@ button {
   backdrop-filter: blur(1.25rem);
   -webkit-backdrop-filter: blur(1.25rem);
   box-shadow: 0 0.625rem 0.625rem rgba(0, 0, 0, 0.1);
+  gap: 0.5rem;
 }
 
 button:hover {
   background-color: #500add95;
+}
+
+button > svg {
+  width: 1.5rem;
+  height: 1.5rem;
 }
 
 mark {
@@ -65,31 +62,26 @@ mark {
   gap: 2rem;
   left: 50%;
   transform: translateX(-50%);
-  top: 1.25rem;
+  top: -6rem;
   padding: 0.5rem 1.25rem;
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-radius: 1.875rem;
   z-index: 10;
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.3);
-  background-color: rgba(255, 255, 255, 0.5);
-  border: 2px solid rgba(211, 211, 211, 0.5);
   animation: slideTop 0.3s ease-in-out forwards;
+  animation-delay: 0.5s;
+  animation-fill-mode: forwards;
 }
 
-@keyframes slideTop {
-  0% {
-    translate: 0 -100%;
-  }
-  100% {
-    translate: 0 0;
-  }
+.headerBlur, .banner {
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 0.1rem solid rgba(211, 211, 211, 0.5);
 }
 
 .bfLogo {
   width: 3.5rem;
   height: 3.5rem;
-  z-index: 11;
   border-radius: 0.9375rem;
   transition: 0.3s ease-in-out;
 }
@@ -100,35 +92,90 @@ mark {
 
 .image-container {
   position: relative;
-  display: inline-block;
-  margin: 15px;
+  display: flex;
+  flex-direction: column;
+  width: 18.75rem;
+  height: 18.75rem;
+  border-radius: 1.25rem;
+}
+
+.image-container > img {
+  width: 18.75rem;
+  height: 18.75rem;
+  border-radius: 1.25rem;
+  object-fit: cover;
 }
 
 .banner {
   position: absolute;
-  bottom: 0px;
-  left: 0;
-  width: 18.75rem;
-  background-color: rgba(255, 255, 255, 0.7);
+  bottom: 0.5rem;
+  left: 0.5rem;
+  width: calc(100% - 1.2rem);
   text-align: center;
-  border-radius: 0 0 1.25rem 1.25rem;
+  border-radius: 0.75rem;
   backdrop-filter: blur(20px);
-  border-top: 2px solid rgba(184, 184, 184, 0.5);
   -webkit-backdrop-filter: blur(20px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0.75rem 0;
+}
+
+.banner > a > button {
+  margin-top: 0.7rem;
+}
+
+.banner > p, .banner > h2, .banner > h3 {
+  margin: 0.5rem;
+  text-align: center;
+}
+
+.collection {
+  display: flex;
+  flex-direction: column;
+  margin: 2rem 0;
 }
 
 .grid {
   display: flex;
   flex-wrap: wrap;
   justify-content: left;
+  gap: 1rem;
+}
+
+.buttonsStack {
+  display: flex;
+  gap: 1rem;
+  position: fixed;
+  translate: -50% 0;
+  left: 50%;
+  bottom: 2rem;
+}
+
+@keyframes slideTop {
+  0% {
+    top: -6rem;
+  }
+  100% {
+    top: 1.25rem;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    filter: blur(1rem);
+  }
+  to {
+    opacity: 1;
+    filter: none;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
   body {
     background-color: black;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
   }
 
   body, a {
@@ -145,21 +192,8 @@ mark {
     background: linear-gradient(to top, indigo, black);
   }
 
-  .headerBlur {
+  .banner, .headerBlur {
     background-color: rgba(40, 40, 40, 0.7);
-    border: 2px solid rgba(45, 45, 45, 0.5);
-  }
-
-  .author {
-    color: rgba(255, 255, 255, 0.5);
-  }
-
-  .banner {
-    background-color: rgba(40, 40, 40, 0.7);
-    border-top: 2px solid rgba(45, 45, 45, 0.5);
-  }
-
-  .topMask {
-    background: linear-gradient(to top, rgba(255, 255, 255, 0), black);
+    border: 0.1rem solid rgba(45, 45, 45, 0.5);
   }
 }
