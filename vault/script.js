@@ -2,6 +2,10 @@ let bookmarks = [];
 let currentEditIndex = null; // Keep track of the bookmark being edited
 let lastDeletedBookmark = null; // Keep track of the last deleted bookmark
 let lastDeletedIndex = null; // Keep track of the index of the last deleted bookmark
+let vaults = [];
+let currentVaultIndex = 0; // Keep track of the current vault index
+let currentVaultName = 'Default Vault'; // Default vault name
+
 
 // DOM Elements
 const bookmarkGrid = document.getElementById('bookmark-grid');
@@ -17,15 +21,109 @@ const bookmarkContentInput = document.getElementById('bookmark-content');
 const bookmarkImageInput = document.getElementById('bookmark-image');
 const contentLabel = document.getElementById('content-label');
 const imageUploadLabel = document.getElementById('image-upload-label');
+// DOM elements: Vaults
+const vaultBtn = document.getElementById('vault-btn');
+const vaultModal = document.getElementById('vault-modal');
+const vaultNameInput = document.getElementById('vault-name');
+const vaultSelect = document.getElementById('vault-select');
+const createVaultBtn = document.getElementById('create-vault-btn');
+const deleteVaultBtn = document.getElementById('delete-vault-btn');
+const renameVaultBtn = document.getElementById('rename-vault-btn');
 
-// Load bookmarks from localStorage on page load
 window.onload = () => {
+  const savedVaults = localStorage.getItem('vaults');
+  if (savedVaults) {
+    vaults = JSON.parse(savedVaults);
+  }
+  renderVaults();
+  loadCurrentVault();
+
   const savedBookmarks = localStorage.getItem('bookmarks');
   if (savedBookmarks) {
     bookmarks = JSON.parse(savedBookmarks);
     renderBookmarks();
   }
 };
+
+// Vaults
+
+// Show/Hide Modal for Vaults
+vaultBtn.addEventListener('click', () => {
+  vaultModal.style.display = 'flex';
+  renderVaults(); // Refresh the vault select options
+});
+
+// Close modal
+closeButtons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    vaultModal.style.display = 'none';
+  });
+});
+
+// Create new vault
+createVaultBtn.addEventListener('click', () => {
+  const newVaultName = vaultNameInput.value || `Vault ${vaults.length + 1}`;
+  vaults.push({ name: newVaultName, bookmarks: [] });
+  saveVaults();
+  renderVaults();
+  vaultNameInput.value = ''; // Clear the input
+});
+
+// Delete current vault
+deleteVaultBtn.addEventListener('click', () => {
+  if (vaults.length > 1) {
+    vaults.splice(currentVaultIndex, 1); // Remove the current vault
+    currentVaultIndex = 0; // Reset to the first vault
+    saveVaults();
+    loadCurrentVault();
+    renderVaults();
+  } else {
+    alert("You cannot delete the last vault.");
+  }
+});
+
+// Rename current vault
+renameVaultBtn.addEventListener('click', () => {
+  if (vaults[currentVaultIndex]) {
+    vaults[currentVaultIndex].name = vaultNameInput.value;
+    saveVaults();
+    loadCurrentVault();
+    renderVaults();
+  }
+});
+
+// Load current vault bookmarks
+function loadCurrentVault() {
+  const currentVault = vaults[currentVaultIndex];
+  bookmarks = currentVault ? currentVault.bookmarks : [];
+  renderBookmarks();
+}
+
+// Save vaults to localStorage
+function saveVaults() {
+  localStorage.setItem('vaults', JSON.stringify(vaults));
+}
+
+// Render vaults in the select dropdown
+function renderVaults() {
+  vaultSelect.innerHTML = ''; // Clear existing options
+  vaults.forEach((vault, index) => {
+    const option = document.createElement('option');
+    option.value = index;
+    option.textContent = vault.name;
+    vaultSelect.appendChild(option);
+  });
+
+  // Update the current vault name
+  vaultSelect.value = currentVaultIndex;
+  vaultNameInput.value = vaults[currentVaultIndex]?.name || '';
+}
+
+// Change current vault on selection
+vaultSelect.addEventListener('change', (e) => {
+  currentVaultIndex = e.target.value;
+  loadCurrentVault(); // Load bookmarks from the selected vault
+});
 
 // Show/Hide Modal Functions
 addBookmarkBtn.addEventListener('click', () => {
@@ -62,7 +160,7 @@ bookmarkForm.addEventListener('submit', (e) => {
           // Editing existing bookmark (only title for images)
           bookmarks[currentEditIndex].name = name;
         }
-        saveBookmarks();
+        saveVaults();
         renderBookmarks();
         bookmarkForm.reset();
         bookmarkModal.style.display = 'none';
@@ -80,21 +178,19 @@ bookmarkForm.addEventListener('submit', (e) => {
       bookmarks[currentEditIndex].name = name;
       bookmarks[currentEditIndex].content = content;
     }
-    saveBookmarks();
+    saveVaults();
     renderBookmarks();
     bookmarkForm.reset();
     bookmarkModal.style.display = 'none';
   }
 });
 
-// Save bookmarks to localStorage
-function saveBookmarks() {
-  localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
-}
-
 // Render bookmarks in the grid and add Edit buttons
 function renderBookmarks() {
   bookmarkGrid.innerHTML = ''; // Clear previous bookmarks
+  const currentVault = vaults[currentVaultIndex];
+  const bookmarks = currentVault ? currentVault.bookmarks : [];
+
   bookmarks.forEach((bookmark, index) => {
     const bookmarkCard = document.createElement('div');
     bookmarkCard.classList.add('image-container');
@@ -152,7 +248,7 @@ function deleteBookmark(index) {
 
   // Remove the bookmark
   bookmarks.splice(index, 1);
-  saveBookmarks();
+  saveVaults();
   renderBookmarks();
 
   // Show undo message
@@ -173,7 +269,7 @@ function deleteBookmark(index) {
   undoDiv.querySelector('.undo-btn').addEventListener('click', () => {
     if (lastDeletedBookmark && lastDeletedIndex !== null) {
       bookmarks.splice(lastDeletedIndex, 0, lastDeletedBookmark);
-      saveBookmarks();
+      saveVaults();
       renderBookmarks();
       undoDiv.remove();
     }
@@ -191,15 +287,18 @@ document.getElementById('download-json').addEventListener('click', () => {
   link.click();
 });
 
-// Upload JSON to load bookmarks
+// Upload JSON to add bookmarks to the current vault
 document.getElementById('upload-json').addEventListener('change', (e) => {
   const file = e.target.files[0];
   if (file) {
     const reader = new FileReader();
     reader.onload = function(event) {
-      bookmarks = JSON.parse(event.target.result);
-      saveBookmarks();
-      renderBookmarks();
+      const uploadedBookmarks = JSON.parse(event.target.result);
+      
+      // Assuming uploadedBookmarks is an array, merge it with the existing bookmarks
+      vaults[currentVaultIndex].bookmarks = vaults[currentVaultIndex].bookmarks.concat(uploadedBookmarks);
+      saveVaults();
+      loadCurrentVault();      
     };
     reader.readAsText(file);
   }

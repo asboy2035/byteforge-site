@@ -2,6 +2,10 @@ body {
   margin: 0rem;
 }
 
+button {
+  margin-top: 0.75rem;
+}
+
 .container {
   margin-top: 6rem;
   padding: 0.5rem;
@@ -176,6 +180,9 @@ body {
   padding: 1.25rem;
   border-radius: 1.6125rem;
   animation: scale 0.2s ease-in-out forwards;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
 }
 
 .close-btn {
@@ -231,6 +238,6 @@ select, input {
   }
 }
 
-.floating-btn .pwa {
+.floating-menu .pwa {
   bottom: var(--safe-area-inset-bottom);
 }
