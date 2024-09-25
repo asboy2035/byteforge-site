@@ -1,10 +1,10 @@
 const CACHE_NAME = 'vault-cache-v1';
 const FILES_TO_CACHE = [
-  '/vault',
   '/check-pwa.js',
   'index.html',
   'script.js',
-  'styles.css'
+  'styles.css',
+  '/default-styles.css'
 ];
 
 // Install event - Cache files
@@ -37,28 +37,28 @@ self.addEventListener('activate', (event) => {
 // Fetch event - Serve from cache or fetch from network
 self.addEventListener('fetch', (event) => {
   event.respondWith(
-    caches.match(event.request)
-      .then(cachedResponse => {
-        if (cachedResponse) {
-          return cachedResponse;
+    caches.match(event.request).then(cachedResponse => {
+      if (cachedResponse) {
+        return cachedResponse;
+      }
+
+      return fetch(event.request).then(networkResponse => {
+        // Check if the response is a redirect
+        if (networkResponse && networkResponse.type === 'opaque') {
+          return networkResponse; // Don't cache opaque responses (e.g., redirects)
         }
 
-        // Clone the request
-        return fetch(event.request).then(networkResponse => {
-          if (networkResponse && networkResponse.status === 200) {
-            // Clone the response
-            const responseClone = networkResponse.clone();
+        if (networkResponse && networkResponse.status === 200) {
+          const responseClone = networkResponse.clone();
+          caches.open(CACHE_NAME).then(cache => {
+            cache.put(event.request, responseClone);
+          });
+        }
 
-            // Open the cache and store the new response
-            caches.open(CACHE_NAME).then(cache => {
-              cache.put(event.request, responseClone);
-            });
-          }
-          return networkResponse;
-        }).catch(() => {
-          // Fallback logic if there's no network
-          console.log('Network request failed, and no cache found.');
-        });
-      })
+        return networkResponse;
+      }).catch(() => {
+        console.log('Network request failed, and no cache found.');
+      });
+    })
   );
 });
