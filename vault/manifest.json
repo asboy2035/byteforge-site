@@ -9,7 +9,7 @@
       "type": "image/x-icon"
     }
   ],
-  "start_url": "index.html",
+  "start_url": "/vault",
   "display": "standalone",
   "background_color": "#000",
   "theme_color": "#000000"
