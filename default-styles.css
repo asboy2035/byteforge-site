@@ -200,6 +200,7 @@ mark {
 
 .pwa .headerBlur {
   top: var(--safe-area-inset-top) !important;
+  text-align: center;
 }
 
 .pwa .bfLogo {
