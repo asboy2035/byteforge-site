@@ -1,6 +1,7 @@
 const CACHE_NAME = 'vault-cache-v1';
 const FILES_TO_CACHE = [
   '/vault',
+  '/check-pwa.js',
   'index.html',
   'script.js',
   'styles.css'
