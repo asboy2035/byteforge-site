@@ -5,6 +5,7 @@ const FILES_TO_CACHE = [
   'script.js',
   'styles.css',
   '/default-styles.css'
+  'service-worker.js'
 ];
 
 // Install event - Cache files
