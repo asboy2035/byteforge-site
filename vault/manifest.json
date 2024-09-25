@@ -1,0 +1,16 @@
+{
+  "name": "ByteForge Vault",
+  "short_name": "Vault",
+  "description": "A simple and private note taking app.",
+  "icons": [
+    {
+      "src": "/Images/favicon.ico",
+      "sizes": "256x256",
+      "type": "image/x-icon"
+    }
+  ],
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#000",
+  "theme_color": "#000000"
+}
