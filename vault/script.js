@@ -204,3 +204,16 @@ document.getElementById('upload-json').addEventListener('change', (e) => {
     reader.readAsText(file);
   }
 });
+
+// Listen for changes in the bookmark type dropdown
+bookmarkTypeInput.addEventListener('change', () => {
+  if (bookmarkTypeInput.value === 'image') {
+    bookmarkContentInput.classList.add('hidden'); // Hide the URL/Text input
+    bookmarkImageInput.classList.remove('hidden'); // Show the image upload input
+    imageUploadLabel.classList.remove('hidden'); // Show the image upload label
+  } else {
+    bookmarkContentInput.classList.remove('hidden'); // Show the URL/Text input
+    bookmarkImageInput.classList.add('hidden'); // Hide the image upload input
+    imageUploadLabel.classList.add('hidden'); // Hide the image upload label
+  }
+});

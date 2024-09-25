@@ -191,7 +191,10 @@ select, input {
 }
 
 .hidden {
-  display: none;
+  opacity: 0;
+  margin: 0;
+  position: fixed;
+  bottom: 0;
 }
 
 #bookmark-form {
