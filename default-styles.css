@@ -200,6 +200,9 @@ mark {
 
 .pwa .headerBlur {
   top: var(--safe-area-inset-top) !important;
+}
+
+.pwa .headerBlur > h1 {
   text-align: center;
 }
 
