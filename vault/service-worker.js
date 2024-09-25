@@ -4,7 +4,7 @@ const FILES_TO_CACHE = [
   'index.html',
   'script.js',
   'styles.css',
-  '/default-styles.css'
+  '/default-styles.css',
   'service-worker.js'
 ];
 
