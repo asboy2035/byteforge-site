@@ -1,7 +1,3 @@
-:root {
-  --safe-area-inset-top: env(safe-area-inset-top);
-}
-
 .author {
   opacity: 0.6;
 }

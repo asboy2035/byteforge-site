@@ -1,3 +1,8 @@
+:root {
+  --safe-area-inset-top: env(safe-area-inset-top);
+  --safe-area-inset-bottom: env(safe-area-inset-bottom);
+}
+
 body {
   background-color: white;
   text-align: left;
@@ -194,9 +199,7 @@ mark {
 }
 
 .pwa .headerBlur {
-  /* margin-top: 50px; */
-  top: var(--safe-area-inset-top);
-  margin-bottom: 60px;
+  top: var(--safe-area-inset-top) !important;
 }
 
 .pwa .bfLogo {

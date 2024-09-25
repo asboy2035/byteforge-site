@@ -230,3 +230,7 @@ select, input {
     color: white;
   }
 }
+
+.floating-btn .pwa {
+  bottom: var(--safe-area-inset-bottom);
+}
