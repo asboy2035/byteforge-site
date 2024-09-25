@@ -97,6 +97,10 @@ function loadCurrentVault() {
   const currentVault = vaults[currentVaultIndex];
   bookmarks = currentVault ? currentVault.bookmarks : [];
   renderBookmarks();
+
+  // Display the current vault name
+  const vaultNameElement = document.getElementById('current-vault-name');
+  vaultNameElement.textContent = currentVault ? currentVault.name : 'Default Vault';
 }
 
 // Save vaults to localStorage
